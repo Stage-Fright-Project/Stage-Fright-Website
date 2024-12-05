@@ -770,8 +770,8 @@ section,
   position: relative;
   padding: 120px 0 60px 0;
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
+  align-items: center;
+  justify-content: center;
 }
 
 .hero:before {
@@ -814,6 +814,7 @@ section,
   letter-spacing: 1px;
   text-transform: uppercase;
   text-shadow: -1px 0 2px #2f4d5a;  
+
 }
 
 @media (max-width: 640px) {
@@ -823,15 +824,11 @@ section,
   }
 }
 
-.hero .container {
-  margin-top: 30%;
-}
-
 .hero .btn-scroll {
   transition: 0.4s;
   color: var(--default-color);
   display: block;
-  margin-top: 475px;
+  margin-top: 30px;
   animation: btn-up-down 1s ease-in-out infinite alternate-reverse both;
 }
 

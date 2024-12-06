@@ -824,19 +824,26 @@ section,
   }
 }
 
-.hero .btn-scroll {
+.hero .btn-scroll-container {
+  position: absolute;
+  z-index: 2;
+  top: 90%;
+}
+
+.hero .btn-scroll-container .btn-scroll {
   transition: 0.4s;
   color: var(--default-color);
   display: block;
   margin-top: 30px;
   animation: btn-up-down 1s ease-in-out infinite alternate-reverse both;
+  position: fixed;
 }
 
-.hero .btn-scroll i {
+.hero .btn-scroll-container .btn-scroll i {
   font-size: 48px;
 }
 
-.hero .btn-scroll:hover {
+.hero .btn-scroll-container .btn-scroll:hover {
   color: var(--accent-color);
 }
 

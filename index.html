@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Squadfree
@@ -95,19 +96,31 @@
         <p>This is where the tour logo will go</p>
         <div>
           <p>Tickets Sold:</p>
-          <p>000000</p>
+          <div class="tickets-container">
+            <table>
+              <td><p id="tickets">000000</p></td>
+              <td class="maximum-tickets-td"><p id="maximum-tickets">/ max</p></td>
+              <td>
+                    <button>Purchase Ticket</button>
+                    <select name="" id="">
+                      <option value="">Location 1</option>
+                      <option value="">Location 2</option>
+                      <option value="">Location 3</option>
+                      <option value="">Location 4</option>
+                      <option value="">Location 5</option>
+                    </select>
+              </td>
+            </table> 
+          </div>
         </div>
-        <div>
+        <div class="main-countdown-container">
           <p>Starts in:</p>
           <table class="countdown-container">
             <tr class="countdown-number-row">
-              <td><p class="countdown-number">000</p></td>
-
-              <td><p class="countdown-number">00</p></td>
-
-              <td><p class="countdown-number">00</p></td>
-
-              <td><p class="countdown-number">00</p></td>
+              <td><p class="countdown-number day" id="day">000</p></td>
+              <td><p class="countdown-number hour" id="hour">00</p></td>
+              <td><p class="countdown-number minute" id="minute">00</p></td>
+              <td><p class="countdown-number second" id="second">00</p></td>
             </tr>
 
             <tr class="countdown-text-row">
@@ -947,6 +960,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 

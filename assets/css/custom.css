@@ -1,0 +1,111 @@
+/*--------------------------------------------------------------
+# Custom CSS Classes
+--------------------------------------------------------------*/
+
+.hidden {
+    opacity: 0 !important;
+    animation: none !important;
+}
+
+.logo-container {
+    background-color: red;
+    width: 35%;
+  }
+  
+  .tour-banner {
+    background-color: blue;
+    overflow: hidden;
+    width: 0;
+    margin: 0;
+    padding: 1rem;
+    opacity: 0;
+  
+    text-wrap: nowrap;
+  
+    animation:  tour-banner-open 2.75s ease-in-out 2s 1 forwards,
+                tour-banner-fade-in 2.75s ease-out 2s 1 forwards,
+                tour-banner-transforms 2.75s ease-out 2s 1 forwards,
+                tour-banner-styling 2.75s ease-out 2s 1 forwards;
+  
+    border-radius: 0.35rem;
+  }
+  
+  @keyframes tour-banner-open {
+    from {
+      width: 0;
+    }
+    to {
+      /* width: 27rem; */
+      width: 35rem;
+    }
+  }
+  
+  @keyframes tour-banner-fade-in {
+    from {
+      opacity: 0;
+    }
+    15% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes tour-banner-transforms {
+    from {
+      transform: scale(0.9) translateY(3rem);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes tour-banner-styling {
+    from {
+      box-shadow: none;
+    }
+    to {
+      box-shadow: 1rem 1.25rem 2rem red;
+    }
+  }
+  
+  .main-countdown-container {
+    margin-right: 1rem;
+    background-color: red;
+  }
+  
+  .countdown-container {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .countdown-number {
+    font-size: 3rem !important;
+    color: red;
+  }
+  
+  .countdown-text {
+    font-size: 1rem !important;
+  }
+
+  .tickets-container {
+    background-color: red;
+  }
+
+  .maximum-tickets-td {
+    padding-left: 1rem;
+    background-color: blue;
+    padding-top: 1rem;
+    
+    p {
+        color: lightgray;
+    }
+  }
+
+  #tickets {
+    font-size: 2.25rem !important;
+  }

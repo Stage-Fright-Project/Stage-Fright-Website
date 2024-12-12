@@ -52,9 +52,12 @@ function lower() {
         second = 59;
         minute = 59;
         hour -= 1;
+
+        secobj.innerHTML = second;
+        minobj.innerHTML = minute;
+        hourobj.innerHTML = hour;
     }
 }
-
 setInterval(lower, 1000);
 
 /*--------------------------------------------------------------

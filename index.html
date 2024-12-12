@@ -93,22 +93,34 @@
       </div>
       <div class="tour-banner container">
         <h2>Summer Tour</h2>
-        <p>This is where the tour logo will go</p>
+        <!-- <p>This is where the tour logo will go</p> -->
         <div>
           <p>Tickets Sold:</p>
           <div class="tickets-container">
             <table>
               <td><p id="tickets">000000</p></td>
               <td class="maximum-tickets-td"><p id="maximum-tickets">/ max</p></td>
-              <td>
-                    <button>Purchase Ticket</button>
-                    <select name="" id="">
-                      <option value="">Location 1</option>
-                      <option value="">Location 2</option>
-                      <option value="">Location 3</option>
-                      <option value="">Location 4</option>
-                      <option value="">Location 5</option>
-                    </select>
+              <td class="purchase-select-container">
+                <a href="purchase-ticket.html" id="purchase-ticket">
+                  <button>Purchase Ticket</button>
+                </a>
+                <p id="pal-ticket" class="hidden">Pick another location</p>
+                <div class="custom-select">
+                  <select name="selector" id="location-selector">
+                    <option value="0">Los Angeles, California</option>
+                    <option value="1">San Francisco, California</option>
+                    <option value="2">Phoenix, Arizonia</option>
+                    <option value="3">Houston, Texas</option>
+                    <option value="4">Dallas, Texas</option>
+                    <option value="5">New Oreleans, Louisiana</option>
+                    <option value="6">Miami, Florida</option>
+                    <option value="7">Nashville, Tennessee</option>
+                    <option value="8">Chicago, Illinois</option>
+                    <option value="9">Pittsburg, Pennsylvania</option>
+                    <option value="10">Newark, New Jersey</option>
+                    <option value="11">New York City, New York</option>
+                  </select>
+                </div>
               </td>
             </table> 
           </div>

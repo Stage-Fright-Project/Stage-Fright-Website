@@ -5,15 +5,26 @@
 .hidden {
     opacity: 0 !important;
     animation: none !important;
+
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+
+    display: none !important;
+
+    pointer-events: none;
+    cursor: default;
 }
 
 .logo-container {
-    background-color: red;
+    /* background-color: red; */
     width: 35%;
   }
   
   .tour-banner {
-    background-color: blue;
+    /* background-color: blue; */
+    background-color: var(--accent-color);
     overflow: hidden;
     width: 0;
     margin: 0;
@@ -69,13 +80,15 @@
       box-shadow: none;
     }
     to {
-      box-shadow: 1rem 1.25rem 2rem red;
+      /* box-shadow: 1rem 1.25rem 2rem red; */
+      box-shadow: 1rem 1.25rem 2rem rgba(0, 0, 0, 0.485);
+
     }
   }
   
   .main-countdown-container {
     margin-right: 1rem;
-    background-color: red;
+    /* background-color: red; */
   }
   
   .countdown-container {
@@ -85,7 +98,7 @@
   
   .countdown-number {
     font-size: 3rem !important;
-    color: red;
+    /* color: red; */
   }
   
   .countdown-text {
@@ -93,12 +106,12 @@
   }
 
   .tickets-container {
-    background-color: red;
+    /* background-color: red; */
   }
 
   .maximum-tickets-td {
     padding-left: 1rem;
-    background-color: blue;
+    /* background-color: blue; */
     padding-top: 1rem;
     
     p {
@@ -108,4 +121,18 @@
 
   #tickets {
     font-size: 2.25rem !important;
+  }
+
+  #location-selector {
+    font-family: var(--default-font);
+    /* appearance: none; */
+  }
+
+  #location-selector:hover {
+    background-color: rgb(36, 36, 36);
+    color: white;
+  }
+
+  .purchase-select-container {
+    padding-left: 5rem;
   }

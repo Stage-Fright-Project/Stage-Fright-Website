@@ -10,6 +10,14 @@
 
 // addClass(document.getElementsByClassName("countdown-number-f"), countdown-number);
 
+function hide(obj) {
+    obj.classList.add("hidden");
+}
+
+function unhide(obj) {
+    obj.classList.remove("hidden");
+}
+
 /*--------------------------------------------------------------
 # Summer Tour Countdown
 --------------------------------------------------------------*/
@@ -65,7 +73,10 @@ let secondTickInt = 750;
 let ticketsSold = Math.max(957, Math.max(Math.round(Math.random() * 999), Math.round(Math.random() * maximumTickets)));
 
 let tickobj = document.getElementById("tickets");
-let maxtickobj = document.getElementById("maximum-tickets")
+let maxtickobj = document.getElementById("maximum-tickets");
+
+let buttonobj = document.getElementById("purchase-ticket");
+let palobj = document.getElementById("pal-ticket");
 
 tickobj.innerHTML = ticketsSold;
 maxtickobj.innerHTML = "/ " + maximumTickets;
@@ -77,8 +88,11 @@ function updateTickets(max) {
         tickobj.innerHTML = ticketsSold;
     } else {
         tickobj.innerHTML = "Sold Out";
-        tickobj.classList.add("sold-out")
-        maxtickobj.classList.add("hidden")
+        tickobj.classList.add("sold-out");
+        hide(maxtickobj);
+        hide(buttonobj);
+        unhide(palobj);
+        
         // maxtickobj.innerHTML = "See you again next year!"
     }
 }

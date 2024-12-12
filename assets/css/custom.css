@@ -138,15 +138,15 @@
   }
 
   #purchase-ticket-btn {
-    text-decoration: none;
-    background-color: var(--heading-color);
+    /* background-color: var(--heading-color); */
     border-radius: 0.7rem;
     background-color: #2f4d5a;
     color: white;
-    border: none;
     padding: 0.4rem;
     padding-right: 1rem;
     padding-left: 1rem;
+  }
 
-    font-family: var(--default-font);
+  #purchase-ticket {
+    margin-bottom: 3rem;
   }

@@ -60,45 +60,186 @@ function lower() {
 }
 setInterval(lower, 1000);
 
+// /*--------------------------------------------------------------
+// # Summer Tour Tickets Sold
+// --------------------------------------------------------------*/
+
+// // Constants
+
+// let maximumTickets = 4000;
+
+// let firstTickInt = 1000;
+// let secondTickInt = 750;
+
+// // -----------
+
+// let ticketsSold = Math.max(957, Math.max(Math.round(Math.random() * 999), Math.round(Math.random() * maximumTickets)));
+
+// let tickobj = document.getElementById("tickets");
+// let maxtickobj = document.getElementById("maximum-tickets");
+
+// let buttonobj = document.getElementById("purchase-ticket");
+// let palobj = document.getElementById("pal-ticket");
+
+// tickobj.innerHTML = ticketsSold;
+// maxtickobj.innerHTML = "/ " + maximumTickets;
+
+// function updateTickets(max) {
+//     ticketsSold += Math.max(1, Math.max(Math.round(Math.random() * 3), Math.round(Math.random() * max)));
+
+//     if (ticketsSold <= maximumTickets) {
+//         tickobj.innerHTML = ticketsSold;
+//     } else {
+//         tickobj.innerHTML = "Sold Out";
+//         tickobj.classList.add("sold-out");
+//         hide(maxtickobj);
+//         hide(buttonobj);
+//         unhide(palobj);
+        
+//         // maxtickobj.innerHTML = "See you again next year!"
+//     }
+// }
+
+// setInterval(function () {updateTickets(40)}, firstTickInt);
+// setInterval(function () {updateTickets(10)}, secondTickInt);
+
 /*--------------------------------------------------------------
 # Summer Tour Tickets Sold
 --------------------------------------------------------------*/
 
-// Constants
+let allMax =
+[
+    laMax,
+    saMax,
+    phMax,
+    hMax,
+    dMax,
+    noMax,
+    mMax,
+    nMax,
+    cMax,
+    pitMax,
+    newMax,
+    nycMax
+]
 
-let maximumTickets = 4000;
+let allSpeed =
+[
+    laSpeed,
+    saSpeed,
+    phSpeed,
+    hSpeed,
+    dSpeed,
+    noSpeed,
+    mSpeed,
+    nSpeed,
+    cSpeed,
+    pitSpeed,
+    newSpeed,
+    nycSpeed
+]
 
-let firstTickInt = 1000;
-let secondTickInt = 750;
+let allStart = 
+[
+    laStart,
+    saStart,
+    phStart,
+    hStart,
+    dStart,
+    noStart,
+    mStart,
+    nStart,
+    cStart,
+    pitStart,
+    newStart,
+    nycStart
+]
 
-// -----------
+let allNow = 
+[
+    laNow,
+    saNow,
+    phNow,
+    hNow,
+    dNow,
+    noNow,
+    mNow,
+    nNow,
+    cNow,
+    pitNow,
+    newNow,
+    nycNow
+]
 
-let ticketsSold = Math.max(957, Math.max(Math.round(Math.random() * 999), Math.round(Math.random() * maximumTickets)));
+let allSold =
+[
+    laSold = false,
+    saSold = false,
+    phSold = false,
+    hSold = false,
+    dSold = false,
+    noSold = false,
+    mSold = false,
+    nSold = false,
+    cSold = false,
+    pitSold = false,
+    newSold = false,
+    nycSold = false
+]
 
 let tickobj = document.getElementById("tickets");
 let maxtickobj = document.getElementById("maximum-tickets");
 
 let buttonobj = document.getElementById("purchase-ticket");
+let dropobj = document.getElementById("location-selector");
 let palobj = document.getElementById("pal-ticket");
 
-tickobj.innerHTML = ticketsSold;
-maxtickobj.innerHTML = "/ " + maximumTickets;
+function InitTickets() {
+    locationIndex = dropobj.selectedIndex;
 
-function updateTickets(max) {
-    ticketsSold += Math.max(1, Math.max(Math.round(Math.random() * 3), Math.round(Math.random() * max)));
+    maxtickobj.innerHTML = "/ " + allMax[locationIndex];
+    tickobj.innerHTML = allNow[locationIndex];
 
-    if (ticketsSold <= maximumTickets) {
-        tickobj.innerHTML = ticketsSold;
-    } else {
-        tickobj.innerHTML = "Sold Out";
-        tickobj.classList.add("sold-out");
-        hide(maxtickobj);
-        hide(buttonobj);
-        unhide(palobj);
-        
-        // maxtickobj.innerHTML = "See you again next year!"
+    max = allMax[locationIndex];
+    speed = allSpeed[locationIndex];
+    start = allStart[locationIndex];
+    now = allNow[locationIndex];
+    sold = allSold[locationIndex];
+
+    switch (allSold[locationIndex]) {
+        case true:
+            tickobj.innerHTML = "Sold Out";
+
+            hide(maxtickobj);
+            hide(buttonobj);
+            unhide(palobj);
+            break;
+        case false:
+            unhide(maxtickobj);
+            unhide(buttonobj);
+            hide(palobj);
+            break;
+    }
+
+    intervalId = setInterval
+}
+
+function UpdateTickets() {
+    now += Math.max(1, Math.max(Math.round(Math.random() * 3), Math.round(Math.random() * max)));
+
+    switch (now > max || sold) {
+        case true:
+            tickobj.innerHTML = "Sold Out";
+            allSold[locationIndex] = true;
+
+            hide(maxtickobj);
+            hide(buttonobj);
+            unhide(palobj);
+            break;
+        case false:
+            tickobj.innerHTML = now;
+            allNow[locationIndex] = now;
     }
 }
 
-setInterval(function () {updateTickets(40)}, firstTickInt);
-setInterval(function () {updateTickets(10)}, secondTickInt);
+document.getElementById("location-selector").onchange = InitTickets;

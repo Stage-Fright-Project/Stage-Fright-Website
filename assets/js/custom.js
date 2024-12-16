@@ -222,6 +222,10 @@ function InitTickets() {
     }
 
     intervalId = setInterval
+
+    if (intervalId == null) {
+        intervalId = setInterval(UpdateTickets, allSpeed[0])
+    }
 }
 
 function UpdateTickets() {

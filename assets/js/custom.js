@@ -24,7 +24,7 @@ function unhide(obj) {
 
 let second = Math.max(5, Math.max(Math.round(Math.random() * 30), Math.round(Math.random() * 59)));
 let minute = Math.max(5, Math.max(Math.round(Math.random() * 45), Math.round(Math.random() * 59)));
-let hour = Math.max(5, Math.max(Math.round(Math.random() * 30), Math.round(Math.random() * 59)));
+let hour = Math.max(5, Math.max(Math.round(Math.random() * 6), Math.round(Math.random() * 23)));
 let day = Math.max(143, Math.max(Math.round(Math.random() * 70), Math.round(Math.random() * 200)));
 
 let secobj = document.getElementById("second");

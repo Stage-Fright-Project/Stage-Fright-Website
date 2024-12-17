@@ -111,63 +111,63 @@ let allLoc =
 [
     laLoc =
     [
-        laLat,
-        laLon
+        laLat = 34.052235,
+        laLon = -118.243682
     ],
     saLoc =
     [
-        saLat,
-        saLon
+        saLat = 37.774929,
+        saLon = -122.419418
     ],
     phLoc =
     [
-        phLat,
-        phLon
+        phLat = 33.448376,
+        phLon = -112.074036
     ],
     hLoc =
     [
-        hLat,
-        hLon
+        hLat = 29.760427,
+        hLon = -95.369804
     ],
     dLoc =
     [
-        dLat,
-        dLon
+        dLat = 32.776665,
+        dLon = -96.796989
     ],
     noLoc =
     [
-        noLat,
-        noLon
+        noLat = 29.951763,
+        noLon = -90.074617
     ],
     mLoc =
     [
-        mLat,
-        mLon
+        mLat = 25.761681,
+        mLon = -80.191788
     ],
     nLoc =
     [
-        nLat,
-        nLon
+        nLat = 36.162663,
+        nLon = -86.781601
     ],
     cLoc =
     [
-        cLat,
-        cLon
+        cLat = 41.878113,
+        cLon = -87.629799
     ],
     pitLoc =
     [
-        pitLat,
-        pitLon
+        pitLat = 40.440624,
+        pitLon = -79.995888
     ],
     newLoc =
     [
-        newLat,
-        newLon
+        newLat = 40.731510,
+        newLon = -74.174393
     ],
     nycLoc =
     [
-        nycLat,
-        nycLon
+        nycLat = 40.712776,
+        nycLon = -74.005974
     ]
 ]
 
@@ -304,6 +304,8 @@ function InitTicketsOnce() {
                 (position) => {
                     myLoc[0] = position.coords.latitude;
                     myLoc[1] = position.coords.longitude;
+
+                    while (myLoc[0] == null && myLoc[1] == null) {}
 
                     console.log("User position found to be " + myLoc[0] + " " + myLoc[1]);
                 },

@@ -319,7 +319,7 @@ function InitTicketsOnce() {
         case false:
             myLoc[0] = 36.025492;
             myLoc[1] = -95.970157;
-            break;
+            // break;
     }
 
     allLoc.forEach((location, index) => {
@@ -353,6 +353,8 @@ function InitTicketsOnce() {
 
         let dist = R * beta;
 
+        console.log("Distance: " + dist);
+
         allDist[index] = dist;
 
         console.log("Calculated distance for " + index + " :  " + allDist[index]);
@@ -383,7 +385,7 @@ function InitTicketsOnce() {
     });
 
     dropobj.value = previousLowest[1];
-    tickobj.innerHTML = previousLowest[1];
+    // tickobj.innerHTML = previousLowest[1];
     console.log("Set button value");
 }
 
@@ -410,7 +412,7 @@ function InitTickets() {
             hide(maxtickobj);
             hide(buttonobj);
             unhide(palobj);
-            // break;
+            break;
         case false:
             unhide(maxtickobj);
             unhide(buttonobj);
@@ -448,7 +450,7 @@ function UpdateTickets(max) {
             hide(maxtickobj);
             hide(buttonobj);
             unhide(palobj);
-            // break;
+            break;
         case false:
             tickobj.innerHTML = now;
             allNow[locationIndex] = now;

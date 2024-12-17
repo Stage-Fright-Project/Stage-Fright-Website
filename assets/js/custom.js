@@ -370,14 +370,14 @@ function InitTicketsOnce() {
             previousLowest[1] = index;
 
             console.log("No previous lowest found");
-            return;
+            // return;
         } else {
             if (distance < previousLowest[0]) {
                 previousLowest[0] = distance;
                 previousLowest[1] = index;
 
                 console.log("Distance to location index " + index + " is lower than previous location (New location is " + distance + "km )");
-                return;
+                // return;
             }
         }
     });
@@ -410,12 +410,12 @@ function InitTickets() {
             hide(maxtickobj);
             hide(buttonobj);
             unhide(palobj);
-            break;
+            // break;
         case false:
             unhide(maxtickobj);
             unhide(buttonobj);
             hide(palobj);
-            break;
+            // break;
     }
 
     if (intervalIds == null) {
@@ -448,7 +448,7 @@ function UpdateTickets(max) {
             hide(maxtickobj);
             hide(buttonobj);
             unhide(palobj);
-            break;
+            // break;
         case false:
             tickobj.innerHTML = now;
             allNow[locationIndex] = now;

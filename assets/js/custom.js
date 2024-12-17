@@ -380,7 +380,7 @@ function InitTicketsOnce() {
         }
     });
 
-    buttonobj.value = previousLowest[1];
+    dropobj.value = previousLowest[1];
     console.log("Set button value");
 }
 

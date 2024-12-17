@@ -278,7 +278,7 @@ let allSold =
     mSold = false,
     nSold = false,
     cSold = false,
-    pitSold = false,
+    pitSold = true,
     newSold = false,
     nycSold = false
 ]
@@ -292,7 +292,7 @@ let palobj = document.getElementById("pal-ticket");
 
 function InitTicketsOnce() {
     const R = 6371;
-    const myLoc =
+    let myLoc =
     [
         myLat,
         myLon
@@ -362,7 +362,7 @@ function InitTicketsOnce() {
     [
         lowNum,
         lowIndex
-    ];
+    ]
 
     allDist.forEach((distance, index) => {
         if (previousLowest == null) {
@@ -383,6 +383,7 @@ function InitTicketsOnce() {
     });
 
     dropobj.value = previousLowest[1];
+    tickobj.innerHTML = previousLowest[1];
     console.log("Set button value");
 }
 
@@ -420,8 +421,8 @@ function InitTickets() {
     if (intervalIds == null) {
         intervalIds =
         [
-            setInterval(UpdateTickets, allSpeed[locationIndex]),
-            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592)
+            setInterval(UpdateTickets, allSpeed[locationIndex], allSpeed[locationIndex] * 30),
+            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allSpeed[locationIndex] * 15)
         ]
     } else {
         intervalIds.forEach(interval => {
@@ -430,13 +431,13 @@ function InitTickets() {
 
         intervalIds =
         [
-            setInterval(UpdateTickets, allSpeed[locationIndex]),
-            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592)
+            setInterval(UpdateTickets, allSpeed[locationIndex], allSpeed[locationIndex] * 30),
+            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allSpeed[locationIndex] * 15)
         ]
     }
 }
 
-function UpdateTickets() {
+function UpdateTickets(max) {
     now += Math.max(1, Math.max(Math.round(Math.random() * 3), Math.round(Math.random() * max)));
 
     switch (now > max || sold) {

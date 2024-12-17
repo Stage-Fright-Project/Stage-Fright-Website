@@ -107,6 +107,102 @@ setInterval(lower, 1000);
 # Summer Tour Tickets Sold
 --------------------------------------------------------------*/
 
+let allLoc =
+[
+    laLoc =
+    [
+        laLat,
+        laLon
+    ],
+    saLoc =
+    [
+        saLat,
+        saLon
+    ],
+    phLoc =
+    [
+        phLat,
+        phLon
+    ],
+    hLoc =
+    [
+        hLat,
+        hLon
+    ],
+    dLoc =
+    [
+        dLat,
+        dLon
+    ],
+    noLoc =
+    [
+        noLat,
+        noLon
+    ],
+    mLoc =
+    [
+        mLat,
+        mLon
+    ],
+    nLoc =
+    [
+        nLat,
+        nLon
+    ],
+    cLoc =
+    [
+        cLat,
+        cLon
+    ],
+    pitLoc =
+    [
+        pitLat,
+        pitLon
+    ],
+    newLoc =
+    [
+        newLat,
+        newLon
+    ],
+    nycLoc =
+    [
+        nycLat,
+        nycLon
+    ]
+]
+
+let allDist =
+[
+    laDist,
+    saDist,
+    phDist,
+    hPDist,
+    dPDist,
+    noDist,
+    mPDist,
+    nDist,
+    cDist,
+    pitDist,
+    newDist,
+    nycDist
+]
+
+let allPop =
+[
+    laPop,
+    saPop,
+    phPop,
+    hPop,
+    dPop,
+    noPop,
+    mPop,
+    nPop,
+    cPop,
+    pitPop,
+    newPop,
+    nycPop
+]
+
 let allMax =
 [
     laMax,
@@ -194,8 +290,106 @@ let buttonobj = document.getElementById("purchase-ticket");
 let dropobj = document.getElementById("location-selector");
 let palobj = document.getElementById("pal-ticket");
 
+function InitTicketsOnce() {
+    const R = 6371;
+    const myLoc =
+    [
+        myLat,
+        myLon
+    ]
+
+    switch ("geolocation" in navigator) {
+        case true:
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    myLoc[0] = position.coords.latitude;
+                    myLoc[1] = position.coords.longitude;
+
+                    console.log("User position found to be " + myLoc[0] + " " + myLoc[1]);
+                },
+        
+                (error) => {
+                    myLoc[0] = 36.025492;
+                    myLoc[1] = -95.970157;
+                }
+            );
+            break;
+        case false:
+            myLoc[0] = 36.025492;
+            myLoc[1] = -95.970157;
+            break;
+    }
+
+    allLoc.forEach((location, index) => {
+        let radSet =
+        [
+            checking =
+            [
+                (location[0] * Math.PI) / 180,
+                (location[1] * Math.PI) / 180
+            ],
+            current =
+            [
+                (myLoc[0] * Math.PI) / 180,
+                (myLoc[1] * Math.PI) / 180
+            ]
+        ]
+
+        let distSet =
+        [
+            distLat = radSet.current[0] - radSet.checking[0],
+            distLon = radSet.current[1] - radSet.checking[1]
+        ]
+
+        let alpha =
+            Math.sin(distSet.distLat / 2) ** 2 + 
+            Math.cos(radSet.checking[0]) *
+            Math.cos(radSet.current[0]) *
+            Math.sin(distSet.distLon / 2) ** 2;
+        let beta =
+            2 * Math.atan2(Math.sqrt(alpha), Math.sqrt(1 - alpha));
+
+        let dist = R * beta;
+
+        allDist[index] = dist;
+
+        console.log("Calculated distance for " + index + " :  " + allDist[index]);
+    });
+
+    let previousLowest =
+    [
+        lowNum,
+        lowIndex
+    ];
+
+    allDist.forEach((distance, index) => {
+        if (previousLowest == null) {
+            previousLowest[0] = distance;
+            previousLowest[1] = index;
+
+            console.log("No previous lowest found");
+            return;
+        } else {
+            if (distance < previousLowest[0]) {
+                previousLowest[0] = distance;
+                previousLowest[1] = index;
+
+                console.log("Distance to location index " + index + " is lower than previous location (New location is " + distance + "km )");
+                return;
+            }
+        }
+    });
+
+    buttonobj.value = previousLowest[1];
+    console.log("Set button value");
+}
+
 function InitTickets() {
     locationIndex = dropobj.selectedIndex;
+
+    if (allNow[locationIndex] == null) {
+        allNow[locationIndex] = allStart[locationIndex];
+    }
 
     maxtickobj.innerHTML = "/ " + allMax[locationIndex];
     tickobj.innerHTML = allNow[locationIndex];
@@ -221,10 +415,22 @@ function InitTickets() {
             break;
     }
 
-    intervalId = setInterval
+    if (intervalIds == null) {
+        intervalIds =
+        [
+            setInterval(UpdateTickets, allSpeed[locationIndex]),
+            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592)
+        ]
+    } else {
+        intervalIds.forEach(interval => {
+            clearInterval(interval);
+        });
 
-    if (intervalId == null) {
-        intervalId = setInterval(UpdateTickets, allSpeed[0])
+        intervalIds =
+        [
+            setInterval(UpdateTickets, allSpeed[locationIndex]),
+            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592)
+        ]
     }
 }
 
@@ -245,5 +451,8 @@ function UpdateTickets() {
             allNow[locationIndex] = now;
     }
 }
+
+InitTicketsOnce();
+InitTickets();
 
 document.getElementById("location-selector").onchange = InitTickets;

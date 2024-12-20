@@ -157,3 +157,21 @@
     height: 100%;
     position: absolute;
   }
+
+  .horizontal-scroll {
+    margin: 2rem;
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background-color: blue;
+  }
+
+  .disc-item {
+    margin: 2rem;
+    height: 12rem;
+    width: 12rem;
+    background-color: red;
+    display: inline-block;
+    flex-wrap: nowrap;
+  }

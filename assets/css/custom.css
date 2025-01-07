@@ -160,18 +160,33 @@
 
   .horizontal-scroll {
     margin: 2rem;
-    width: 100%;
-    height: auto;
-    overflow-y: hidden;
-    overflow-x: scroll;
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents wrapping */
+    gap: 1.5rem; /* Optional: space between items */
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    scroll-snap-type: x mandatory;
     background-color: blue;
+    width: 18rem;
   }
 
   .disc-item {
-    margin: 2rem;
-    height: 12rem;
-    width: 12rem;
+    flex: 0 0 auto; /* Prevents items from shrinking */
+    width: 15rem;
+    height: 15rem;
+    background-color: #f0f0f0;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 8px;
     background-color: red;
-    display: inline-block;
-    flex-wrap: nowrap;
+  }
+
+  .main-logo {
+    min-width: 428px;
+    min-height: 252px;
+    overflow: visible !important;
+    background-image: url(/assets/img/logo-final.png);
+    background-repeat: no-repeat;
+    scale: 1.2;
   }

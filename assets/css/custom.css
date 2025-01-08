@@ -180,6 +180,7 @@
     line-height: 150px;
     border-radius: 8px;
     background-color: red;
+    scroll-snap-align: center;
   }
 
   .main-logo {
@@ -189,4 +190,21 @@
     background-image: url(/assets/img/logo-final.png);
     background-repeat: no-repeat;
     scale: 1.2;
+  }
+
+  .disc-list {
+    padding-left: 5rem;
+    padding-right: 10rem;
+    font-size: 1.1rem;
+  }
+
+  .disc-info {
+    padding-top: 2rem;
+    vertical-align: top;
+  }
+
+  .disc-box-div {
+    display: flex;
+    align-items: center;
+    position: relative;
   }

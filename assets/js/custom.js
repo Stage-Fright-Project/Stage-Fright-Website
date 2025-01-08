@@ -19,6 +19,29 @@ function unhide(obj) {
 }
 
 /*--------------------------------------------------------------
+# Discovery
+--------------------------------------------------------------*/
+
+const buttonRight = document.getElementById('slideRight');
+const buttonLeft = document.getElementById('slideLeft');
+
+const scrollStep = 16.5 * 16;
+
+buttonRight.onclick = function () {
+    document.getElementById('disc-box').scrollBy({
+        left: scrollStep,
+        behavior: 'smooth'
+    })
+  };
+
+buttonLeft.onclick = function () {
+    document.getElementById('disc-box').scrollBy({
+        left: -scrollStep,
+        behavior: 'smooth'
+    })
+  };
+
+/*--------------------------------------------------------------
 # Summer Tour Countdown
 --------------------------------------------------------------*/
 
@@ -461,3 +484,4 @@ InitTicketsOnce();
 InitTickets();
 
 document.getElementById("location-selector").onchange = InitTickets;
+

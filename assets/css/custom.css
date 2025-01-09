@@ -165,9 +165,9 @@
     white-space: nowrap; /* Prevents wrapping */
     gap: 1.5rem; /* Optional: space between items */
     padding: 1.5rem;
-    border: 1px solid #ccc;
     scroll-snap-type: x mandatory;
-    background-color: blue;
+    background-color: rgb(78, 34, 34);
+    border-radius: 0.5rem;
     width: 18rem;
   }
 
@@ -179,7 +179,7 @@
     text-align: center;
     line-height: 150px;
     border-radius: 8px;
-    background-color: red;
+    background-color: rgb(106, 113, 246);
     scroll-snap-align: center;
   }
 

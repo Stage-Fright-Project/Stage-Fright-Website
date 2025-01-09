@@ -2,6 +2,8 @@
 # Init
 --------------------------------------------------------------*/
 
+const { int } = require("three/tsl");
+
 // function addClass(objs, cls) {
 //     array.forEach(objs => {
 //         objs.classList.add(cls);
@@ -18,6 +20,20 @@ function unhide(obj) {
     obj.classList.remove("hidden");
 }
 
+function remToPx(num) {
+    return num * 16;
+}
+
+// function disable(obj, name) {
+//     obj.classList.add("disabled");
+//     obj.classList.add(name + "-disabled");
+// }
+
+// function enable(obj, name) {
+//     obj.classList.remove("disabled");
+//     obj.classList.remove(name + "-disabled");
+// }
+
 /*--------------------------------------------------------------
 # Discovery
 --------------------------------------------------------------*/
@@ -25,20 +41,28 @@ function unhide(obj) {
 const buttonRight = document.getElementById('slideRight');
 const buttonLeft = document.getElementById('slideLeft');
 
-const scrollStep = 16.5 * 16;
+const scrollStep = remToPx(16.5);
+
+const boxWidth = remToPx(15);
+const gapWidth = remToPx(1.5);
+
+let discIndex = 0;
+const maxDiscIndex = 5;
 
 buttonRight.onclick = function () {
-    document.getElementById('disc-box').scrollBy({
-        left: scrollStep,
+    document.getElementById('disc-box').scrollTo({
+        left: boxWidth * (discIndex + 1),
         behavior: 'smooth'
-    })
+    });
+    discIndex++;
   };
 
 buttonLeft.onclick = function () {
-    document.getElementById('disc-box').scrollBy({
-        left: -scrollStep,
+    document.getElementById('disc-box').scrollTo({
+        left: boxWidth * (discIndex - 1),
         behavior: 'smooth'
-    })
+    });
+    discIndex--;
   };
 
 /*--------------------------------------------------------------

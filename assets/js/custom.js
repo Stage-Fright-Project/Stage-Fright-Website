@@ -1,8 +1,7 @@
+
 /*--------------------------------------------------------------
 # Init
 --------------------------------------------------------------*/
-
-const { int } = require("three/tsl");
 
 // function addClass(objs, cls) {
 //     array.forEach(objs => {
@@ -24,15 +23,27 @@ function remToPx(num) {
     return num * 16;
 }
 
-// function disable(obj, name) {
-//     obj.classList.add("disabled");
-//     obj.classList.add(name + "-disabled");
-// }
+function disable(obj, name) {
+    obj.classList.add("disabled");
+    obj.classList.add(name + "-disabled");
+}
 
-// function enable(obj, name) {
-//     obj.classList.remove("disabled");
-//     obj.classList.remove(name + "-disabled");
-// }
+function enable(obj, name) {
+    obj.classList.remove("disabled");
+    obj.classList.remove(name + "-disabled");
+}
+
+function highlight(obj, name) {
+    obj.classList.add("highlighted");
+    obj.classList.add(name + "-highlighted");
+}
+
+function unhighlight(obj, name) {
+    obj.classList.remove("highlighted");
+    obj.classList.remove(name + "-highlighted");
+}
+
+
 
 /*--------------------------------------------------------------
 # Discovery
@@ -40,30 +51,146 @@ function remToPx(num) {
 
 const buttonRight = document.getElementById('slideRight');
 const buttonLeft = document.getElementById('slideLeft');
+const discList = document.getElementsByClassName("disc-li");
+const discName = document.getElementById('discName');
+const discDesc = document.getElementById('discDesc');
 
 const scrollStep = remToPx(16.5);
 
 const boxWidth = remToPx(15);
 const gapWidth = remToPx(1.5);
 
+// let date = new Date();
+// let seconds = now.getSeconds();
+// let start = 0;
+let stop = false;
+
 let discIndex = 0;
 const maxDiscIndex = 5;
 
+const discListNames =
+[
+    "Wanderer's Sky",
+    "Whispers in the Pines",
+    "Beneath the Blackwater Sky",
+    "Item 4",
+    "Item 5",
+    "Item 6"
+]
+
+const discListDesc =
+[
+    "Item 1 Desc",
+    "Item 2 Desc",
+    "Item 3 Desc",
+    "Item 4 Desc",
+    "Item 5 Desc",
+    "Item 6 Desc"
+]
+
+disable(buttonLeft, "disc-btn");
+highlight(discList[0], "disc-li");
+discName.innerHTML = discListNames[0];
+discDesc.innerHTML = discListDesc[0];
+
 buttonRight.onclick = function () {
-    document.getElementById('disc-box').scrollTo({
-        left: boxWidth * (discIndex + 1),
-        behavior: 'smooth'
-    });
-    discIndex++;
+    if (discIndex < maxDiscIndex && discIndex != maxDiscIndex - 1) {
+        document.getElementById('disc-box').scrollTo({
+            left: boxWidth * (discIndex + 1),
+            behavior: 'smooth'
+        });
+        enable(buttonRight, "disc-btn");
+        enable(buttonLeft, "disc-btn");
+        discIndex++;
+    } else if (discIndex == maxDiscIndex - 1) {
+        document.getElementById('disc-box').scrollTo({
+            left: boxWidth * (discIndex + 1),
+            behavior: 'smooth'
+        });
+        discIndex++;
+        disable(buttonRight, "disc-btn");
+    } else {
+        disable(buttonRight, "disc-btn");
+    }
+
+    highlight(discList[discIndex], "disc-li");
+    unhighlight(discList[discIndex - 1], "disc-li");
+
+    discName.innerHTML = discListNames[discIndex];
+    discDesc.innerHTML = discListDesc[discIndex];
+
+    stop = true;
   };
 
-buttonLeft.onclick = function () {
-    document.getElementById('disc-box').scrollTo({
-        left: boxWidth * (discIndex - 1),
-        behavior: 'smooth'
-    });
-    discIndex--;
+  buttonLeft.onclick = function () {
+    if (discIndex > 0 && discIndex != 1) {
+        document.getElementById('disc-box').scrollTo({
+            left: boxWidth * (discIndex - 1),
+            behavior: 'smooth'
+        });
+        enable(buttonLeft, "disc-btn");
+        enable(buttonRight, "disc-btn");
+        discIndex--;
+    } else if (discIndex = 1) {
+        document.getElementById('disc-box').scrollTo({
+            left: boxWidth * (discIndex - 1),
+            behavior: 'smooth'
+        });
+        discIndex--;
+        disable(buttonLeft, "disc-btn");
+    } else {
+        disable(buttonLeft, "disc-btn");
+    }
+
+    highlight(discList[discIndex], "disc-li");
+    unhighlight(discList[discIndex + 1], "disc-li");
+
+    discName.innerHTML = discListNames[discIndex];
+    discDesc.innerHTML = discListDesc[discIndex];
+
+    stop = true;
   };
+
+  function flip() {
+    // seconds = date.getSeconds();
+
+    if (!stop) { 
+    if (discIndex < maxDiscIndex && discIndex != maxDiscIndex - 1) {
+        document.getElementById('disc-box').scrollTo({
+            left: boxWidth * (discIndex + 1),
+            behavior: 'smooth'
+        });
+        enable(buttonRight, "disc-btn");
+        enable(buttonLeft, "disc-btn");
+        discIndex++;
+    } else if (discIndex == maxDiscIndex - 1) {
+        document.getElementById('disc-box').scrollTo({
+            left: boxWidth * (discIndex + 1),
+            behavior: 'smooth'
+        });
+        discIndex++;
+        disable(buttonRight, "disc-btn");
+    } else {
+        document.getElementById('disc-box').scrollTo({
+            left: 0,
+            behavior: 'smooth'
+        });
+        enable(buttonRight, "disc-btn");
+        disable(buttonLeft, "disc-btn");
+        unhighlight(discList[maxDiscIndex], "disc-li");
+        discIndex = 0;
+    }
+
+    highlight(discList[discIndex], "disc-li");
+    unhighlight(discList[discIndex - 1], "disc-li");
+
+    discName.innerHTML = discListNames[discIndex];
+    discDesc.innerHTML = discListDesc[discIndex];
+    }
+  }
+
+  setInterval(flip, 7500);
+
 
 /*--------------------------------------------------------------
 # Summer Tour Countdown
@@ -153,8 +280,7 @@ setInterval(lower, 1000);
 /*--------------------------------------------------------------
 # Summer Tour Tickets Sold
 --------------------------------------------------------------*/
-
-let allLoc =
+const allLoc =
 [
     laLoc =
     [
@@ -330,12 +456,12 @@ let allSold =
     nycSold = false
 ]
 
-let tickobj = document.getElementById("tickets");
-let maxtickobj = document.getElementById("maximum-tickets");
+const tickobj = document.getElementById("tickets");
+const maxtickobj = document.getElementById("maximum-tickets");
 
-let buttonobj = document.getElementById("purchase-ticket");
-let dropobj = document.getElementById("location-selector");
-let palobj = document.getElementById("pal-ticket");
+const buttonobj = document.getElementById("purchase-ticket");
+const dropobj = document.getElementById("location-selector");
+const palobj = document.getElementById("pal-ticket");
 
 function InitTicketsOnce() {
     const R = 6371;
@@ -345,29 +471,27 @@ function InitTicketsOnce() {
         myLon
     ]
 
-    switch ("geolocation" in navigator) {
-        case true:
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    myLoc[0] = position.coords.latitude;
-                    myLoc[1] = position.coords.longitude;
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                myLoc[0] = position.coords.latitude;
+                myLoc[1] = position.coords.longitude;
 
-                    while (myLoc[0] == null && myLoc[1] == null) {}
+                    // while (myLoc[0] == null && myLoc[1] == null) {}
 
-                    console.log("User position found to be " + myLoc[0] + " " + myLoc[1]);
-                },
+                console.log("User position found to be " + myLoc[0] + " " + myLoc[1]);
+            },
         
-                (error) => {
-                    myLoc[0] = 36.025492;
-                    myLoc[1] = -95.970157;
-                }
-            );
-            break;
-        case false:
-            myLoc[0] = 36.025492;
-            myLoc[1] = -95.970157;
-            // break;
+            (error) => {
+                myLoc[0] = 36.025492;
+                myLoc[1] = -95.970157;
+            }
+        );
+    } else {
+        myLoc[0] = 36.025492;
+        myLoc[1] = -95.970157;
     }
+
 
     allLoc.forEach((location, index) => {
         let radSet =

@@ -169,6 +169,8 @@
     background-color: rgb(78, 34, 34);
     border-radius: 0.5rem;
     width: 18rem;
+    box-shadow: .5rem .5rem .75rem rgba(0, 0, 0, 0.336) inset,
+    0 0 .5rem rgba(0, 0, 0, 0.623) inset;
   }
 
   .disc-item {
@@ -181,6 +183,8 @@
     border-radius: 8px;
     background-color: rgb(106, 113, 246);
     scroll-snap-align: center;
+
+    /* box-shadow: -.3rem -.3rem .4rem rgba(0, 0, 0, 0.514) inset, .3rem .3rem .4rem rgba(255, 255, 255, 0.185) inset; */
   }
 
   .main-logo {
@@ -207,4 +211,31 @@
     display: flex;
     align-items: center;
     position: relative;
+  }
+
+  .disc-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    transition-duration: 1s;
+    border: solid white 0.2rem;
+  }
+
+  .disc-btn-disabled {
+    transform: scale(0.85);
+    background-color: rgba(255, 255, 255, 0.6);
+    border: solid rgba(255, 255, 255, 0.62) 0.2rem;
+  }
+
+  /* .disabled {
+    background-color: red;
+    opacity: .5;
+  } */
+
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .highlighted {
+    color: red;
   }

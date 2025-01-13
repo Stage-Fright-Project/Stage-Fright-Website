@@ -184,6 +184,8 @@
     background-color: rgb(106, 113, 246);
     scroll-snap-align: center;
 
+    /* transform: scale(0.98); */
+
     /* box-shadow: -.3rem -.3rem .4rem rgba(0, 0, 0, 0.514) inset, .3rem .3rem .4rem rgba(255, 255, 255, 0.185) inset; */
   }
 
@@ -219,6 +221,7 @@
     border-radius: 1.5rem;
     transition-duration: 1s;
     border: solid white 0.2rem;
+    background-color: white;
   }
 
   .disc-btn-disabled {
@@ -236,6 +239,14 @@
     display: none;
   }
 
-  .highlighted {
-    color: red;
+  .disc-li-highlighted {
+    color: rgb(126, 40, 40);
+    transition-duration: 0.5s;
+  }
+
+  .disc-item-highlighted {
+    box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.398);
+    transition-duration: 1s;
+
+    /* transform: scale(1); */
   }

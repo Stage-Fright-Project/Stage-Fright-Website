@@ -54,6 +54,7 @@ const buttonLeft = document.getElementById('slideLeft');
 const discList = document.getElementsByClassName("disc-li");
 const discName = document.getElementById('discName');
 const discDesc = document.getElementById('discDesc');
+const discItems = document.getElementsByClassName('disc-item');
 
 const scrollStep = remToPx(16.5);
 
@@ -70,12 +71,12 @@ const maxDiscIndex = 5;
 
 const discListNames =
 [
-    "Wanderer's Sky",
-    "Whispers in the Pines",
-    "Beneath the Blackwater Sky",
-    "Item 4",
-    "Item 5",
-    "Item 6"
+    "Wanderer's<br>Sky",
+    "Whispers in<br>the Pines",
+    "Beneath the<br>Blackwater Sky",
+    "Funeral for<br>the Stars",
+    "Split by<br>the Sea",
+    "Solitude for<br>the Shore"
 ]
 
 const discListDesc =
@@ -90,6 +91,7 @@ const discListDesc =
 
 disable(buttonLeft, "disc-btn");
 highlight(discList[0], "disc-li");
+highlight(discItems[0], "disc-item")
 discName.innerHTML = discListNames[0];
 discDesc.innerHTML = discListDesc[0];
 
@@ -115,6 +117,9 @@ buttonRight.onclick = function () {
 
     highlight(discList[discIndex], "disc-li");
     unhighlight(discList[discIndex - 1], "disc-li");
+
+    highlight(discItems[discIndex], "disc-item");
+    unhighlight(discItems[discIndex - 1], "disc-item");
 
     discName.innerHTML = discListNames[discIndex];
     discDesc.innerHTML = discListDesc[discIndex];
@@ -144,6 +149,9 @@ buttonRight.onclick = function () {
 
     highlight(discList[discIndex], "disc-li");
     unhighlight(discList[discIndex + 1], "disc-li");
+
+    highlight(discItems[discIndex], "disc-item");
+    unhighlight(discItems[discIndex + 1], "disc-item");
 
     discName.innerHTML = discListNames[discIndex];
     discDesc.innerHTML = discListDesc[discIndex];
@@ -178,11 +186,15 @@ buttonRight.onclick = function () {
         enable(buttonRight, "disc-btn");
         disable(buttonLeft, "disc-btn");
         unhighlight(discList[maxDiscIndex], "disc-li");
+        unhighlight(discItems[maxDiscIndex], "disc-item");
         discIndex = 0;
     }
 
     highlight(discList[discIndex], "disc-li");
     unhighlight(discList[discIndex - 1], "disc-li");
+
+    highlight(discItems[discIndex], "disc-item");
+    unhighlight(discItems[discIndex - 1], "disc-item");
 
     discName.innerHTML = discListNames[discIndex];
     discDesc.innerHTML = discListDesc[discIndex];

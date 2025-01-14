@@ -1741,3 +1741,7 @@ section,
   /* Add your styles here */
 }
 
+.company-benefits {
+  color: var(--accent-color);
+}
+

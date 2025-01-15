@@ -247,6 +247,20 @@
   .disc-item-highlighted {
     box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.398);
     transition-duration: 1s;
+  }
 
-    /* transform: scale(1); */
+  .l-person-highlight {
+    background-image: radial-gradient(50% black, 50% red) !important;
+  }
+
+  .r-person-highlight {
+
+  }
+
+  .t-person-highlight {
+
+  }
+
+  .b-person-highlight {
+
   }

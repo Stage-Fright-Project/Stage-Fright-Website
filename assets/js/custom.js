@@ -209,31 +209,31 @@ buttonRight.onclick = function () {
 # Logo Movement
 --------------------------------------------------------------*/
 
-let transx = 0;
-let transy = 0;
-let scale = 20;
-let rotation = 0;
-let rotationFlipper = 0;
+// let transx = 0;
+// let transy = 0;
+// let scale = 20;
+// let rotation = 0;
+// let rotationFlipper = 0;
 
-function move() {
-    let logo = document.getElementById('mainLogoId');
-    transx = Math.random() * 3;
-    transy = Math.random() * 3;
-    rotation = Math.random() * 15;
-    scale = (Math.random() + 1) * 0.25 + 1;
+// function move() {
+//     let logo = document.getElementById('mainLogoId');
+//     transx = Math.random() * 3;
+//     transy = Math.random() * 3;
+//     rotation = Math.random() * 15;
+//     scale = (Math.random() + 1) * 0.25 + 1;
     
-    rotationFlipper = Math.random();
+//     rotationFlipper = Math.random();
 
-    if (rotationFlipper < 0) {
-        logo.style.transform = `translate(${transx}rem, ${transy}rem) rotate(${180 - rotation}deg) scale(${scale})`;
-    } else {
-        logo.style.transform = `translate(${transx}rem, ${transy}rem) rotate(${rotation}deg) scale(${scale})`;
-    }
+//     if (rotationFlipper < 0) {
+//         logo.style.transform = `translate(${transx}rem, ${transy}rem) rotate(${180 - rotation}deg) scale(${scale})`;
+//     } else {
+//         logo.style.transform = `translate(${transx}rem, ${transy}rem) rotate(${rotation}deg) scale(${scale})`;
+//     }
 
 
-}
+// }
 
-setInterval(move, 250);
+// setInterval(move, 250);
 
 /*--------------------------------------------------------------
 # Summer Tour Countdown

@@ -265,9 +265,58 @@
 
   }
 
-  .map {
-    min-width: 2560px;
-    height: 1583px;
+  .map-div {
     background-image: url('/assets/img/map.png');
     filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(165deg);
+    background-size: 70rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60rem;
+  }
+  .map-container {
+    background-color: var(--accent-color);
+    border-radius: 2rem;
+    box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.336) inset,
+    0 0 3rem rgba(0, 0, 0, 0.623) inset;
+    outline: solid 0.1rem rgba(255, 255, 255, 0.196);
+  }
+  .map-point {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: calc(1.5rem / 2);
+    background-color: rgb(93, 128, 176);
+    position: relative;
+  }
+  #map-1 {
+    translate: 6.6rem -33.5rem;
+  }
+  #map-2 {
+    translate: 11rem -28rem;
+  }
+  #map-3 {
+    translate: 19.5rem -27rem;
+  }
+  #map-4 {
+    translate: 41rem -21rem;
+  }
+  #map-5 {
+    translate: 38.25rem -28rem;
+  }
+  #map-6 {
+    translate: 48.25rem -24.5rem;
+  }
+  #map-7 {
+    translate: 62.75rem -21.6rem;
+  }
+  #map-8 {
+    translate: 53.5rem -35rem;
+  }
+  #map-9 {
+    translate: 50rem -49.2rem;
+  }
+  #map-10 {
+    translate: 58.5rem -47.2rem;
+  }
+  #map-11 {
+    translate: 67rem -53rem;
   }

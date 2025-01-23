@@ -279,12 +279,14 @@
     box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.336) inset,
     0 0 3rem rgba(0, 0, 0, 0.623) inset;
     outline: solid 0.1rem rgba(255, 255, 255, 0.196);
+    position: relative;
   }
   .map-point {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: calc(1.5rem / 2);
-    background-color: rgb(93, 128, 176);
+    background-color: transparent;
+    border: solid 5px white;
     position: relative;
   }
   #map-1 {
@@ -319,4 +321,27 @@
   }
   #map-11 {
     translate: 67rem -53rem;
+  }
+  .map-info {
+    width: calc(100% - 2rem);
+    height: 20rem;
+    background-color: rgb(89, 122, 255);
+    border-radius: 2rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+
+    padding: 3rem;
+  }
+  .map-countdown-column {
+    padding-left: 5rem;
+    /* padding-top: 3rem; */
+    width: 45rem;
+  }
+
+  .map-point-highlighted {
+    width: 0rem;
+    height: 0rem;
+    border: solid 10px white;
+    transition-duration: 0.4s;
   }

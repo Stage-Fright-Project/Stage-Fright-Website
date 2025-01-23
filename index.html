@@ -347,7 +347,7 @@
 
         <div class="map-container">
           <div class="map-div"></div>
-          <div class="map-point" id="map-1"></div>
+          <div class="map-point map-point-highlighted" id="map-1"></div>
           <div class="map-point" id="map-2"></div>
           <div class="map-point" id="map-3"></div>
           <div class="map-point" id="map-4"></div>
@@ -358,8 +358,69 @@
           <div class="map-point" id="map-9"></div>
           <div class="map-point" id="map-10"></div>
           <div class="map-point" id="map-11"></div>
+          <div class="map-info">
+            <p>Please pick a location to see details...</p>
+            
+            <table>
+              <td>
+                <div>
+                  <p>Tickets Sold:</p>
+                  <div class="tickets-container">
+                    <table>
+                      <td><p id="tickets">000000</p></td>
+                      <td class="maximum-tickets-td"><p id="maximum-tickets">/ max</p></td>
+                      <td class="purchase-select-container">
+                        <a href="purchase-ticket.html" id="purchase-ticket">
+                          <p id="purchase-ticket-btn">Purchase Ticket</p>
+                        </a>
+                        <p id="pal-ticket" class="hidden">Pick another location</p>
+                        <div class="custom-select">
+                          <select name="selector" id="location-selector">
+                            <option value="0">Los Angeles, California</option>
+                            <option value="1">San Francisco, California</option>
+                            <option value="2">Phoenix, Arizonia</option>
+                            <option value="3">Houston, Texas</option>
+                            <option value="4">Dallas, Texas</option>
+                            <option value="5">New Oreleans, Louisiana</option>
+                            <option value="6">Miami, Florida</option>
+                            <option value="7">Nashville, Tennessee</option>
+                            <option value="8">Chicago, Illinois</option>
+                            <option value="9">Pittsburg, Pennsylvania</option>
+                            <option value="10">Newark, New Jersey</option>
+                            <option value="11">New York City, New York</option>
+                          </select>
+                        </div>
+                      </td>
+                    </table> 
+                  </div>
+                </div>
+              </td>
+              <td class="map-countdown-column">
+                <div class="main-countdown-container">
+                  <p>Starts in:</p>
+                  <table class="countdown-container">
+                    <tr class="countdown-number-row">
+                      <td><p class="countdown-number day" id="day">000</p></td>
+                      <td><p class="countdown-number hour" id="hour">00</p></td>
+                      <td><p class="countdown-number minute" id="minute">00</p></td>
+                      <td><p class="countdown-number second" id="second">00</p></td>
+                    </tr>
+        
+                    <tr class="countdown-text-row">
+                      <td><p class="countdown-text">Days</p></td>
+        
+                      <td><p class="countdown-text">Hours</p></td>
+        
+                      <td><p class="countdown-text">Minutes</p></td>
+        
+                      <td><p class="countdown-text">Seconds</p></td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              </table>
+          </div>
         </div>     
-
       </div>
 
     </section><!-- /Services Section -->

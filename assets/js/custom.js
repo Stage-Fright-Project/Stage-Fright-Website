@@ -45,7 +45,33 @@ function unhighlight(obj, name) {
     obj.classList.remove(name + "-highlighted");
 }
 
+/*--------------------------------------------------------------
+# Map
+--------------------------------------------------------------*/
 
+const map1 = document.getElementById("map-1");
+const map2 = document.getElementById("map-2");
+const map3 = document.getElementById("map-3");
+const map4 = document.getElementById("map-4");
+const map5 = document.getElementById("map-5");
+const map6 = document.getElementById("map-6");
+const map7 = document.getElementById("map-7");
+const map8 = document.getElementById("map-8");
+const map9 = document.getElementById("map-9");
+const map10 = document.getElementById("map-10");
+const map11 = document.getElementById("map-11");
+
+
+// connect(map1, map2);
+// connect(map2, map3);
+// connect(map3, map4);
+// connect(map4, map5);
+// connect(map5, map6);
+// connect(map6, map7);
+// connect(map7, map8);
+// connect(map8, map9);
+// connect(map9, map10);
+// connect(map10, map11);
 
 /*--------------------------------------------------------------
 # Discovery

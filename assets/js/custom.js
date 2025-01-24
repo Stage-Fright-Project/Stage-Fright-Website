@@ -60,6 +60,49 @@ const map8 = document.getElementById("map-8");
 const map9 = document.getElementById("map-9");
 const map10 = document.getElementById("map-10");
 const map11 = document.getElementById("map-11");
+const mapName = document.getElementById("mapLocName");
+
+const mapNames = [
+    "Los Angeles, California",
+    "San Francisco, California",
+    "Pheonix, Arizona",
+    "Houston, Texas",
+    "Dallas, Texas",
+    "New Oreleans, Louisiana",
+    "Miami, Florida",
+    "Nashville, Tennessee",
+    "Chicago, Illinois",
+    "Pittsburgh, Pennsylvania",
+    "Newark, New Jersey",
+    "New York City, New York"
+]
+
+const mapPoints = [
+    map1,
+    map2,
+    map3,
+    map4,
+    map5,
+    map6,
+    map7,
+    map8,
+    map9,
+    map10,
+    map11
+]
+
+mapPoints.forEach((point, index) => {
+    point.addEventListener('click', function() {
+        highlight(point, "map-point");
+        mapName.innerHTML = mapNames[index];
+        mapPoints.forEach(others => {
+            if (others != point) {
+                unhighlight(others, "map-point")
+            }                
+        });
+      });
+});
+
 
 
 // connect(map1, map2);

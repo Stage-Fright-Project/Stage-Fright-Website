@@ -288,18 +288,33 @@
     background-color: transparent;
     border: solid 5px white;
     position: relative;
+
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+    box-shadow: -0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.309);
   }
   #map-1 {
-    translate: 6.6rem -33.5rem;
+    position: absolute !important;
+    /* translate: 6.6rem -33.5rem; */
+    left: 7.2rem;
+    top: 26.85rem;
   }
   #map-2 {
-    translate: 11rem -28rem;
+    position: absolute !important;
+    /* translate: 11rem -28rem; */
+    left: 11rem;
+    top: 32.5rem;
   }
   #map-3 {
-    translate: 19.5rem -27rem;
+    position: absolute !important;
+    /* translate: 19.5rem -27rem; */
+    left: 19.7rem;
+    top: 35.7rem;
   }
   #map-4 {
-    translate: 41rem -21rem;
+    position: absolute !important;
+    /* translate: 41rem -21rem; */
   }
   #map-5 {
     translate: 38.25rem -28rem;
@@ -344,4 +359,6 @@
     height: 0rem;
     border: solid 10px white;
     transition-duration: 0.4s;
+    cursor: unset !important;
+    /* transform: translateX(0.2rem) translateY(0.2rem); */
   }

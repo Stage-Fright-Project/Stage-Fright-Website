@@ -45,6 +45,10 @@ function unhighlight(obj, name) {
     obj.classList.remove(name + "-highlighted");
 }
 
+function logError(error) {
+    document.getElementById('errorViewer').innerHTML = error;
+}
+
 /*--------------------------------------------------------------
 # Map
 --------------------------------------------------------------*/
@@ -394,179 +398,196 @@ setInterval(lower, 1000);
 --------------------------------------------------------------*/
 const allLoc =
 [
-    laLoc =
     [
-        laLat = 34.052235,
-        laLon = -118.243682
+        34.052235,
+        -118.243682
     ],
-    saLoc =
     [
-        saLat = 37.774929,
-        saLon = -122.419418
+        37.774929,
+        -122.419418
     ],
-    phLoc =
     [
-        phLat = 33.448376,
-        phLon = -112.074036
+        33.448376,
+        -112.074036
     ],
-    hLoc =
     [
-        hLat = 29.760427,
-        hLon = -95.369804
+        29.760427,
+        -95.369804
     ],
-    dLoc =
     [
-        dLat = 32.776665,
-        dLon = -96.796989
+        32.776665,
+        -96.796989
     ],
-    noLoc =
     [
-        noLat = 29.951763,
-        noLon = -90.074617
+        29.951763,
+        -90.074617
     ],
-    mLoc =
     [
-        mLat = 25.761681,
-        mLon = -80.191788
+        25.761681,
+        -80.191788
     ],
-    nLoc =
     [
-        nLat = 36.162663,
-        nLon = -86.781601
+        36.162663,
+        -86.781601
     ],
-    cLoc =
     [
-        cLat = 41.878113,
-        cLon = -87.629799
+        41.878113,
+        -87.629799
     ],
-    pitLoc =
     [
-        pitLat = 40.440624,
-        pitLon = -79.995888
+        40.440624,
+        -79.995888
     ],
-    newLoc =
     [
-        newLat = 40.731510,
-        newLon = -74.174393
+        40.731510,
+        -74.174393
     ],
-    nycLoc =
     [
-        nycLat = 40.712776,
-        nycLon = -74.005974
+        40.712776,
+        -74.005974
     ]
 ]
 
 let allDist =
 [
-    laDist,
-    saDist,
-    phDist,
-    hPDist,
-    dPDist,
-    noDist,
-    mPDist,
-    nDist,
-    cDist,
-    pitDist,
-    newDist,
-    nycDist
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
 ]
 
-let allPop =
-[
-    laPop,
-    saPop,
-    phPop,
-    hPop,
-    dPop,
-    noPop,
-    mPop,
-    nPop,
-    cPop,
-    pitPop,
-    newPop,
-    nycPop
-]
+// let allPop =
+// [
+//     laPop,
+//     saPop,
+//     phPop,
+//     hPop,
+//     dPop,
+//     noPop,
+//     mPop,
+//     nPop,
+//     cPop,
+//     pitPop,
+//     newPop,
+//     nycPop
+// ]
 
 let allMax =
 [
-    laMax,
-    saMax,
-    phMax,
-    hMax,
-    dMax,
-    noMax,
-    mMax,
-    nMax,
-    cMax,
-    pitMax,
-    newMax,
-    nycMax
+    100000,
+    100000,
+    100000,
+    100000,
+    100000,
+    100000,
+    100000,
+    100000,
+    100000,
+    100000,
+    100000,
+    100000
 ]
 
 let allSpeed =
 [
-    laSpeed,
-    saSpeed,
-    phSpeed,
-    hSpeed,
-    dSpeed,
-    noSpeed,
-    mSpeed,
-    nSpeed,
-    cSpeed,
-    pitSpeed,
-    newSpeed,
-    nycSpeed
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100
+]
+
+let allSellAmount = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
 ]
 
 let allStart = 
 [
-    laStart,
-    saStart,
-    phStart,
-    hStart,
-    dStart,
-    noStart,
-    mStart,
-    nStart,
-    cStart,
-    pitStart,
-    newStart,
-    nycStart
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
 ]
 
 let allNow = 
 [
-    laNow,
-    saNow,
-    phNow,
-    hNow,
-    dNow,
-    noNow,
-    mNow,
-    nNow,
-    cNow,
-    pitNow,
-    newNow,
-    nycNow
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
 ]
 
 let allSold =
 [
-    laSold = false,
-    saSold = false,
-    phSold = false,
-    hSold = false,
-    dSold = false,
-    noSold = false,
-    mSold = false,
-    nSold = false,
-    cSold = false,
-    pitSold = true,
-    newSold = false,
-    nycSold = false
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false
 ]
+
+let intervalIds =
+[
+    setInterval(() => {}, 100000),
+    setInterval(() => {}, 100000)
+]
+
+let max;
+let speed;
+let start;
+let now;
+let sold;
+
+let locationIndex = 0;
 
 const tickobj = document.getElementById("tickets");
 const maxtickobj = document.getElementById("maximum-tickets");
@@ -579,8 +600,8 @@ function InitTicketsOnce() {
     const R = 6371;
     let myLoc =
     [
-        myLat,
-        myLon
+        36.025492,
+        -95.970157
     ]
 
     if ("geolocation" in navigator) {
@@ -591,7 +612,7 @@ function InitTicketsOnce() {
 
                     // while (myLoc[0] == null && myLoc[1] == null) {}
 
-                console.log("User position found to be " + myLoc[0] + " " + myLoc[1]);
+                console.log("User position found to be " + myLoc[0] + " " + myLoc[1] + "/n Using position for nearest tour location.");
             },
         
             (error) => {
@@ -608,12 +629,12 @@ function InitTicketsOnce() {
     allLoc.forEach((location, index) => {
         let radSet =
         [
-            checking =
+            // checking =
             [
                 (location[0] * Math.PI) / 180,
                 (location[1] * Math.PI) / 180
             ],
-            current =
+            // current =
             [
                 (myLoc[0] * Math.PI) / 180,
                 (myLoc[1] * Math.PI) / 180
@@ -622,15 +643,15 @@ function InitTicketsOnce() {
 
         let distSet =
         [
-            distLat = radSet.current[0] - radSet.checking[0],
-            distLon = radSet.current[1] - radSet.checking[1]
+            radSet[1][0] - radSet[0][0],
+            radSet[1][1] - radSet[0][1]
         ]
 
         let alpha =
-            Math.sin(distSet.distLat / 2) ** 2 + 
-            Math.cos(radSet.checking[0]) *
-            Math.cos(radSet.current[0]) *
-            Math.sin(distSet.distLon / 2) ** 2;
+            Math.sin(distSet[0] / 2) ** 2 + 
+            Math.cos(radSet[0][0]) *
+            Math.cos(radSet[1][0]) *
+            Math.sin(distSet[1] / 2) ** 2;
         let beta =
             2 * Math.atan2(Math.sqrt(alpha), Math.sqrt(1 - alpha));
 
@@ -645,12 +666,12 @@ function InitTicketsOnce() {
 
     let previousLowest =
     [
-        lowNum,
-        lowIndex
+        -1,
+        -1
     ]
 
     allDist.forEach((distance, index) => {
-        if (previousLowest == null) {
+        if (previousLowest[0] == -1) {
             previousLowest[0] = distance;
             previousLowest[1] = index;
 
@@ -673,9 +694,9 @@ function InitTicketsOnce() {
 }
 
 function InitTickets() {
-    locationIndex = dropobj.selectedIndex;
+    locationIndex = locationIndex != null ? dropobj.selectedIndex : 0;
 
-    if (allNow[locationIndex] == null) {
+    if (allNow[locationIndex] == 0) {
         allNow[locationIndex] = allStart[locationIndex];
     }
 
@@ -700,14 +721,14 @@ function InitTickets() {
             unhide(maxtickobj);
             unhide(buttonobj);
             hide(palobj);
-            // break;
+            break;
     }
 
-    if (intervalIds == null) {
+    if (intervalIds[0] == setInterval(() => {}, 100000)) {
         intervalIds =
         [
-            setInterval(UpdateTickets, allSpeed[locationIndex], allSpeed[locationIndex] * 30),
-            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allSpeed[locationIndex] * 15)
+            setInterval(UpdateTickets, allSpeed[locationIndex], allMax[locationIndex], allSellAmount[locationIndex]),
+            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allMax[locationIndex], allSellAmount[locationIndex] * Math.E)
         ]
     } else {
         intervalIds.forEach(interval => {
@@ -716,15 +737,17 @@ function InitTickets() {
 
         intervalIds =
         [
-            setInterval(UpdateTickets, allSpeed[locationIndex], allSpeed[locationIndex] * 30),
-            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allSpeed[locationIndex] * 15)
+            setInterval(UpdateTickets, allSpeed[locationIndex], allMax[locationIndex], allSellAmount[locationIndex]),
+            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allMax[locationIndex], allSellAmount[locationIndex] * Math.E)
         ]
     }
 }
 
-function UpdateTickets(max) {
-    now += Math.max(1, Math.max(Math.round(Math.random() * 3), Math.round(Math.random() * max)));
+function UpdateTickets(max, speed) {
+    // now += Math.max(1, Math.max(Math.round(Math.random() * 3), Math.round(Math.random() * max)));
+    now += Math.round(Math.random * speed);
 
+    logError(now);
     switch (now > max || sold) {
         case true:
             tickobj.innerHTML = "Sold Out";
@@ -737,6 +760,11 @@ function UpdateTickets(max) {
         case false:
             tickobj.innerHTML = now;
             allNow[locationIndex] = now;
+
+            unhide(maxtickobj);
+            unhide(buttonobj);
+            hide(palobj);
+            break;
     }
 }
 

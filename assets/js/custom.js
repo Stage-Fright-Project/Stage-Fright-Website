@@ -66,6 +66,8 @@ const map10 = document.getElementById("map-10");
 const map11 = document.getElementById("map-11");
 const mapName = document.getElementById("mapLocName");
 
+const mapdropobj = document.getElementById('map-location-selector');
+
 const mapNames = [
     "Los Angeles, California",
     "San Francisco, California",
@@ -99,13 +101,50 @@ mapPoints.forEach((point, index) => {
     point.addEventListener('click', function() {
         highlight(point, "map-point");
         mapName.innerHTML = mapNames[index];
+        locationIndex = index;
+        dropobj.value = index;
+        mapdropobj.value = index;
+
         mapPoints.forEach(others => {
             if (others != point) {
                 unhighlight(others, "map-point")
             }                
         });
-      });
+
+        InitTickets();
+    });
 });
+
+mapdropobj.onchange = () => {
+    // highlight(mapPoints[mapdropobj.value], "map-point");
+    // mapName.innerHTML = mapNames[mapdropobj.value];
+    // locationIndex = mapdropobj.value;
+    // dropobj.value = mapdropobj.value;
+
+    // mapPoints.forEach(others => {
+    //     if (others != mapPoints[mapdropobj.value]) {
+    //         unhighlight(others, "map-point")
+    //     }                
+    // });
+
+    // InitTickets();
+    UpdateMap();
+};
+
+function UpdateMap() {
+    highlight(mapPoints[mapdropobj.value], "map-point");
+    mapName.innerHTML = mapNames[mapdropobj.value];
+    locationIndex = mapdropobj.value;
+    dropobj.value = mapdropobj.value;
+
+    mapPoints.forEach(others => {
+        if (others != mapPoints[mapdropobj.value]) {
+            unhighlight(others, "map-point")
+        }                
+    });
+
+    InitTickets();
+}
 
 
 
@@ -545,18 +584,18 @@ let allStart =
 
 let allNow = 
 [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
 ]
 
 let allSold =
@@ -570,15 +609,15 @@ let allSold =
     false,
     false,
     false,
-    true,
+    false,
     false,
     false
 ]
 
 let intervalIds =
 [
-    setInterval(() => {}, 100000),
-    setInterval(() => {}, 100000)
+    setInterval(() => {}, 0),
+    setInterval(() => {}, 0)
 ]
 
 let max;
@@ -689,6 +728,8 @@ function InitTicketsOnce() {
     });
 
     dropobj.value = previousLowest[1];
+    mapdropobj.value = previousLowest[1];
+    UpdateMap();
     // tickobj.innerHTML = previousLowest[1];
     console.log("Set button value");
 }
@@ -709,6 +750,8 @@ function InitTickets() {
     now = allNow[locationIndex];
     sold = allSold[locationIndex];
 
+    
+
     switch (allSold[locationIndex]) {
         case true:
             tickobj.innerHTML = "Sold Out";
@@ -724,28 +767,42 @@ function InitTickets() {
             break;
     }
 
-    if (intervalIds[0] == setInterval(() => {}, 100000)) {
-        intervalIds =
-        [
-            setInterval(UpdateTickets, allSpeed[locationIndex], allMax[locationIndex], allSellAmount[locationIndex]),
-            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allMax[locationIndex], allSellAmount[locationIndex] * Math.E)
-        ]
-    } else {
-        intervalIds.forEach(interval => {
-            clearInterval(interval);
-        });
+    // if (intervalIds[0] == setInterval(() => {}, 100000)) {
+    //     intervalIds =
+    //     [
+    //         setInterval(UpdateTickets, allSpeed[locationIndex], allMax[locationIndex], allSellAmount[locationIndex]),
+    //         setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allMax[locationIndex], allSellAmount[locationIndex] * Math.E)
+    //     ]
+    // } else {
+    //     intervalIds.forEach(interval => {
+    //         clearInterval(interval);
+    //     });
 
-        intervalIds =
-        [
-            setInterval(UpdateTickets, allSpeed[locationIndex], allMax[locationIndex], allSellAmount[locationIndex]),
-            setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allMax[locationIndex], allSellAmount[locationIndex] * Math.E)
-        ]
-    }
+    //     intervalIds =
+    //     [
+    //         setInterval(UpdateTickets, allSpeed[locationIndex], allMax[locationIndex], allSellAmount[locationIndex]),
+    //         setInterval(UpdateTickets, allSpeed[locationIndex] / 1.3141592, allMax[locationIndex], allSellAmount[locationIndex] * Math.E)
+    //     ]
+    // }
+
+    intervalIds.forEach(interval => {
+        clearInterval(interval);
+    });
+
+    intervalIds =
+    [
+        setInterval(() => {UpdateTickets(allMax[locationIndex], allSellAmount[locationIndex])}, allSpeed[locationIndex]),
+        setInterval(() => {UpdateTickets(allMax[locationIndex], allSellAmount[locationIndex] * 2.573)}, allSpeed[locationIndex] / 1.3141592)
+    ]
 }
 
 function UpdateTickets(max, speed) {
     // now += Math.max(1, Math.max(Math.round(Math.random() * 3), Math.round(Math.random() * max)));
-    now += Math.round(Math.random * speed);
+    // if (now == null) {
+    //     now = allNow[locationIndex != null ? locationIndex : 0];
+    // }
+
+    now += Math.round(Math.random() * speed);
 
     logError(now);
     switch (now > max || sold) {
@@ -759,6 +816,7 @@ function UpdateTickets(max, speed) {
             break;
         case false:
             tickobj.innerHTML = now;
+            document.getElementById('map-tickets').innerHTML = now;
             allNow[locationIndex] = now;
 
             unhide(maxtickobj);

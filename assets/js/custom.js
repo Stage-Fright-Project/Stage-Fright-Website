@@ -127,7 +127,7 @@ mapdropobj.onchange = () => {
     //     }                
     // });
 
-    // InitTickets();
+    InitTickets();
     UpdateMap();
 };
 
@@ -142,8 +142,6 @@ function UpdateMap() {
             unhighlight(others, "map-point")
         }                
     });
-
-    InitTickets();
 }
 
 

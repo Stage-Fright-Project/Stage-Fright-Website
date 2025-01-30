@@ -45,9 +45,9 @@ function unhighlight(obj, name) {
     obj.classList.remove(name + "-highlighted");
 }
 
-function logError(error) {
-    document.getElementById('errorViewer').innerHTML = error;
-}
+// function logError(error) {
+//     document.getElementById('errorViewer').innerHTML = error;
+// }
 
 /*--------------------------------------------------------------
 # Map
@@ -802,7 +802,7 @@ function UpdateTickets(max, speed) {
 
     now += Math.round(Math.random() * speed);
 
-    logError(now);
+    // logError(now);
     switch (now > max || sold) {
         case true:
             tickobj.innerHTML = "Sold Out";

@@ -45,6 +45,8 @@ function unhighlight(obj, name) {
     obj.classList.remove(name + "-highlighted");
 }
 
+// document.querySelector('video').playbackRate = 1;
+
 // function logError(error) {
 //     document.getElementById('errorViewer').innerHTML = error;
 // }
@@ -824,8 +826,8 @@ function UpdateTickets(max, speed) {
     }
 }
 
-InitTicketsOnce();
-InitTickets();
+// InitTicketsOnce();
+// InitTickets();
 
 document.getElementById("location-selector").onchange = InitTickets;
 

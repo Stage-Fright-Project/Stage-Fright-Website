@@ -17,6 +17,23 @@
     cursor: default;
 }
 
+.hidden-fade {
+  opacity: 0 !important;
+  animation: none !important;
+
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+
+  pointer-events: none;
+  cursor: default;
+
+  display: none;
+
+  transition-duration: 0.15s;
+}
+
 .logo-container {
     /* background-color: red; */
     width: 35%;
@@ -24,7 +41,8 @@
   
   .tour-banner {
     /* background-color: blue; */
-    background-color: var(--accent-color);
+    /* background-color: var(--accent-color); */
+    background-color: hsl(187, 75%, 20%);
     overflow: hidden;
     width: 0;
     margin: 0;
@@ -47,7 +65,7 @@
     }
     to {
       /* width: 27rem; */
-      width: 35rem;
+      width: 43rem;
     }
   }
   
@@ -59,10 +77,10 @@
       opacity: 0;
     }
     75% {
-      opacity: 1;
+      opacity: .8;
     }
     to {
-      opacity: 1;
+      opacity: .8;
     }
   }
   
@@ -110,9 +128,9 @@
   }
 
   .maximum-tickets-td {
-    padding-left: 1rem;
+    padding-left: .4rem;
     /* background-color: blue; */
-    padding-top: 1rem;
+    padding-top: 4.5rem;
     
     p {
         color: lightgray;
@@ -126,6 +144,12 @@
   #location-selector {
     font-family: var(--default-font);
     /* appearance: none; */
+    margin-top: 1rem;
+    /* background-color: red; */
+    padding: 0.6rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 0.75rem;
   }
 
   #location-selector:hover {
@@ -134,15 +158,29 @@
   }
 
   .purchase-select-container {
-    padding-left: 5rem;
+    /* padding-left: 5rem; */
+
+    /* padding-right: 2rem; */
+
+  }
+
+  .purchase-ticket-mini-container {
+    /* background-color: #F1A512; */
+    border-radius: 1rem;
+    /* margin-left: 2rem; */
+    padding: 2rem;
+
+    /* box-shadow: -0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.37); */
   }
 
   #purchase-ticket-btn {
     /* background-color: var(--heading-color); */
     border-radius: 0.7rem;
+    background-color: hsl(187, 75%, 10%);
     /* background-color: #2b599e; */
-    background-color: rgba(0, 0, 0, 0.185);
-    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.397);
+    /* background-color: rgba(0, 0, 0, 0.185);
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.397); */
+    box-shadow: -0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.26);
     color: white;
     padding: 0.4rem;
     padding-right: 1rem;

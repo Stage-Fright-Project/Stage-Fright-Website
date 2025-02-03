@@ -826,8 +826,8 @@ function UpdateTickets(max, speed) {
     }
 }
 
-// InitTicketsOnce();
-// InitTickets();
+InitTicketsOnce();
+InitTickets();
 
 document.getElementById("location-selector").onchange = InitTickets;
 

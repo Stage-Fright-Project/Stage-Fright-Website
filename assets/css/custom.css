@@ -206,7 +206,7 @@
     gap: 1.5rem; /* Optional: space between items */
     padding: 1.5rem;
     scroll-snap-type: x mandatory;
-    background-color: var(--background-color);
+    background-color: #1c6062;
     border-radius: 0.5rem;
     width: 18rem;
     box-shadow: .5rem .5rem .75rem rgba(0, 0, 0, 0.336) inset,
@@ -223,6 +223,8 @@
     border-radius: 8px;
     background-color: rgb(106, 113, 246);
     scroll-snap-align: center;
+
+    filter: saturate(35%);
 
     /* transform: scale(0.98); */
 
@@ -282,7 +284,7 @@
   }
 
   .disc-li-highlighted {
-    color: var(--accent-color);
+    color: #1c6062;
     transition-duration: 0.5s;
   }
 
@@ -309,14 +311,14 @@
 
   .map-div {
     background-image: url('/assets/img/map.png');
-    filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(165deg);
+    /* filter: saturate(300%) brightness(70%) hue-rotate(165deg); */
     background-size: 70rem;
     background-repeat: no-repeat;
     background-position: center;
     height: 60rem;
   }
   .map-container {
-    background-color: var(--accent-color);
+    background-color: #1c6062;
     border-radius: 2rem;
     box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.336) inset,
     0 0 3rem rgba(0, 0, 0, 0.623) inset;
@@ -382,7 +384,7 @@
   .map-info {
     width: calc(100% - 2rem);
     height: 20rem;
-    background-color: rgb(89, 122, 255);
+    background-color: var(--heading-color);
     border-radius: 2rem;
     position: absolute;
     bottom: 1rem;

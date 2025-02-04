@@ -21,8 +21,8 @@
 :root { 
   --background-color: #050d14; /* Background color for the entire website, including individual sections */
   --default-color: #d5d5d5; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #F1A512; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #DD4111; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #38cedc; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #1d454c; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -30,7 +30,7 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #e3e2f2;  /* The default color of the main navmenu links */
-  --nav-hover-color: #6cdbdd; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: hsl(187, 75%, 20%); /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -40,7 +40,7 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #2BAF90;
+  --background-color: #38cedc;
   --surface-color: #ffffff;
 }
 
@@ -184,7 +184,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #6cdbdd;
+  --background-color: #1d454c;
 }
 
 /*--------------------------------------------------------------

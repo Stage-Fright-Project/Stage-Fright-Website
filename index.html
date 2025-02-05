@@ -117,7 +117,7 @@
               
               <td class="purchase-select-container">
                 <div class="purchase-ticket-mini-container">
-                <a href="purchase-ticket.html" id="purchase-ticket">
+                <a href="/purchase-tickets.html" id="purchase-ticket">
                   <p id="purchase-ticket-btn">Purchase Ticket</p>
                 </a>
                 <p id="pal-ticket" class="hidden">Pick another location</p>
@@ -191,6 +191,8 @@
             <h3>About Us</h3>
             <p style="font-size: 1.2rem;">
               Stage Fright is anything but afraid to take the spotlight. Blending raw energy with haunting melodies, we’re an up-and-coming band that thrives on the edge of rock and alternative soundscapes. Our music tells stories of late-night anxieties, electric dreams, and the thrill of the unknown. Whether we’re shaking the stage or pouring our hearts into a quiet melody, we bring every note to life.
+<br><br>
+The band was started in Tulsa, Oklahoma in 2017 inside a garage. Stage Fright's following started out small, but has grown greatly over the past year to what it is today.
 <br><br>
 Join us as we turn fear into fire—one song at a time.
             </p>
@@ -364,6 +366,12 @@ Join us as we turn fear into fire—one song at a time.
          </section><!-- /Discovery Secction -->
 
 
+         <div id="map-info-block" class="map-info-block" style="width: auto; height: auto; background-color: white; border-radius: 0.75rem; position: absolute !important; z-index: 500 !important; box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.441); padding: 1rem;">
+          <span id="map-name"></span>
+          <br>
+          <span id="map-time"></span>
+         </div>
+
     <!-- Map Section -->
     <section id="map" class="map section">
 
@@ -377,42 +385,45 @@ Join us as we turn fear into fire—one song at a time.
 
         <div class="map-container">
           <div class="map-div"></div>
-          <div class="map-point map-point-highlighted" id="map-1"></div>
-          <div class="map-point" id="map-2"></div>
-          <div class="map-point" id="map-3"></div>
-          <div class="map-point" id="map-4"></div>
-          <div class="map-point" id="map-5"></div>
-          <div class="map-point" id="map-6"></div>
-          <div class="map-point" id="map-7"></div>
-          <div class="map-point" id="map-8"></div>
-          <div class="map-point" id="map-9"></div>
-          <div class="map-point" id="map-10"></div>
-          <div class="map-point" id="map-11"></div>
-          <div class="map-point" id="map-12"></div>
-          <div class="map-info">
+          <div class="map-point" data-aos="fade-up"  id="map-1"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-2"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-3"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-4"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-5"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-6"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-7"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-8"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-9"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-10"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-11"></div>
+          <div class="map-point" data-aos="fade-up"  id="map-12"></div>
+          <!-- <div class="map-info">
             <p id="mapLocName">Please pick a location to see details...</p>
             
             <table>
               <td>
-                <div>
+                <div class="">
                   <p>Tickets Sold:</p>
                   <div class="tickets-container">
                     <table>
                       <td><p id="map-tickets">000000</p></td>
                       <td class="maximum-tickets-td"><p id="maximum-tickets">/ max</p></td>
                       <td class="purchase-select-container">
-                        <a href="purchase-ticket.html" id="purchase-ticket">
+                        <a href="/purchase-tickets.html" id="purchase-ticket">
                           <p id="purchase-ticket-btn">Purchase Ticket</p>
                         </a>
                         <p id="pal-ticket" class="hidden">Pick another location</p>
                         </div>
+                      </td>
+                      <td>
+                        <p id="map-time">-</p>
                       </td>
                     </table> 
                   </div>
                 </div>
               </td>
               </table>
-          </div>
+          </div> -->
         </div>     
       </div>
 
@@ -519,57 +530,57 @@ Join us as we turn fear into fire—one song at a time.
                 <h4>Summer Tour Tee</h4>
                 <p>Celebrate the launch of our Summer Tour with this t-shirt!</p>
                 <a href="assets/img/portfolio/tourTee-2.png" title="Enlarge Image" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"> <!-- Note to self: Within each div, there will be a reference to the same image twice. Inside this div, both img and a have the same image -->
-              <a href="/merch-html/tour-tee.html"><img src="assets/img/merch/Beanie-1.png" class="img-fluid" alt=""></a>
+              <a href="/merch-html/beanie.html"><img src="assets/img/merch/Beanie-1.png" class="img-fluid" alt=""></a>
               <div class="portfolio-info">
                 <h4>Band Beanie</h4>
                 <p>Cover your head in style with this branded Beanie!</p>
                 <a href="assets/img/merch/Beanie-1.png" title="Enlarge Image" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style=""> <!-- Note to self: Within each div, there will be a reference to the same image twice. Inside this div, both img and a have the same image -->
-              <a href="/merch-html/tour-tee.html"><img src="assets/img/merch/Mug.png" class="img-fluid" alt=""></a>
+              <a href="/merch-html/mug.html"><img src="assets/img/merch/Mug.png" class="img-fluid" alt=""></a>
               <div class="portfolio-info">
                 <h4>Branded Mug</h4>
                 <p>Take a sip of your favorite drink from this Stage Fright mug!</p>
                 <a href="assets/img/merch/Mug.png" title="Enlarge Image" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style=""> <!-- Note to self: Within each div, there will be a reference to the same image twice. Inside this div, both img and a have the same image -->
-              <a href="/merch-html/tour-tee.html"><img src="assets/img/merch/pullStringBag.png" class="img-fluid" alt=""></a>
+              <a href="/merch-html/bag.html"><img src="assets/img/merch/pullStringBag.png" class="img-fluid" alt=""></a>
               <div class="portfolio-info">
                 <h4>Pull String Bag</h4>
                 <p>Carry your items in this stylish bag!</p>
                 <a href="assets/img/merch/pullStringBag.png" title="Enlarge Image" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="width: 40rem; transform: translateX(-12.5rem);"> <!-- Note to self: Within each div, there will be a reference to the same image twice. Inside this div, both img and a have the same image -->
-              <a href="/merch-html/tour-tee.html"><img src="assets/img/merch/Cap.png" class="img-fluid" alt=""></a>
+              <a href="/merch-html/cap.html"><img src="assets/img/merch/Cap.png" class="img-fluid" alt=""></a>
               <div class="portfolio-info">
                 <h4>Stage Fright Cap</h4>
                 <p>Keep the Sun out of your eye's with our branded cap!</p>
                 <a href="assets/img/merch/Cap.png" title="Enlarge Image" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style=""> <!-- Note to self: Within each div, there will be a reference to the same image twice. Inside this div, both img and a have the same image -->
-              <a href="/merch-html/tour-tee.html"><img src="assets/img/merch/Case.png" class="img-fluid" alt=""></a>
+              <a href="/merch-html/case.html"><img src="assets/img/merch/Case.png" class="img-fluid" alt=""></a>
               <div class="portfolio-info">
                 <h4>Phone Case</h4>
                 <p>Display your love for Stage Fright on the back of your phone!</p>
                 <a href="assets/img/merch/Case.png" title="Enlarge Image" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -604,15 +615,15 @@ Join us as we turn fear into fire—one song at a time.
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>4500 S 129th E Ave, Tulsa, OK 74134</p>
+                  <p style="color: gray !important">4500 S 129th E Ave, Tulsa, OK 74134</p>
                 </div>
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <h3>Customer Service</h3>
+                  <p style="color: gray !important">+1 918 855 2991</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -620,7 +631,7 @@ Join us as we turn fear into fire—one song at a time.
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>info@example.com</p>
+                  <p><a href="mailto:stagefrightband.contact@gmail.com" style="color: gray !important">stagefrightband.contact@gmail.com</a></p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -635,22 +646,22 @@ Join us as we turn fear into fire—one song at a time.
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
+                  <label for="name-field" class="pb-2" style="color: gray !important">Your Name</label>
                   <input type="text" name="name" id="name-field" class="form-control" required="">
                 </div>
 
                 <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
+                  <label for="email-field" class="pb-2" style="color: gray !important">Your Email</label>
                   <input type="email" class="form-control" name="email" id="email-field" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
+                  <label for="subject-field" class="pb-2" style="color: gray !important">Subject</label>
                   <input type="text" class="form-control" name="subject" id="subject-field" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
+                  <label for="message-field" class="pb-2" style="color: gray !important">Message</label>
                   <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
                 </div>
 
@@ -685,8 +696,12 @@ Join us as we turn fear into fire—one song at a time.
           <div class="footer-contact pt-3">
             <p>4500 S 129th E Ave</p>
             <p>Tulsa, OK 74134</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>stage.fright@example.com</span></p>
+            <p class="mt-3"><strong>Customer Service:</strong> <span>+1 918 855 2991</span></p>
+            <p><strong>Email:</strong> <span><a href="mailto:stagefrightband.contact@gmail.com" style="color: white !important;">stagefrightband.contact@gmail.com</a></span></p>
+            <br><br>
+            <a href="/booking.html" id="purchase-ticket">
+              <p id="purchase-ticket-btn">Book Us</p>
+            </a>
           </div>
           <!-- <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -699,8 +714,9 @@ Join us as we turn fear into fire—one song at a time.
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About us</a></li>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Crew</a></li>
             <li><a href="#map">Map</a></li>
             <li><a href="#portfolio">Merch</a></li>
           </ul>
@@ -741,7 +757,7 @@ Join us as we turn fear into fire—one song at a time.
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/" style="color: white !important;">BootstrapMade</a>
       </div>
     </div>
 

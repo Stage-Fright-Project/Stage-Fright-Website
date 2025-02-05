@@ -67,7 +67,9 @@ const map9 = document.getElementById("map-9");
 const map10 = document.getElementById("map-10");
 const map11 = document.getElementById("map-11");
 const map12 = document.getElementById("map-12");
-const mapName = document.getElementById("mapLocName");
+const mapName = document.getElementById("map-name");
+const mapTime = document.getElementById("map-time");
+const mapInfo = document.getElementById("map-info-block");
 
 // const mapdwropobj = document.getElementById('map-location-selector');
 
@@ -86,6 +88,21 @@ const mapNames = [
     "New York City, New York"
 ]
 
+const mapTimes = [
+    "May 3, 7:00 PM",
+    "May 9, 7:00 PM",
+    "May 16, 6:50 PM",
+    "May 29, 5:15 PM",
+    "June 2, 7:00 PM",
+    "June 13, 6:30 PM",
+    "June 20, 5:00 PM",
+    "June 30, 5:25 PM",
+    "July 6, 4:45 PM",
+    "July 13, 6:15 PM",
+    "July 19, 7:30 PM",
+    "July 25, 8:15 PM"
+]
+
 const mapPoints = [
     map1,
     map2,
@@ -101,10 +118,38 @@ const mapPoints = [
     map12
 ]
 
+// mapPoints.forEach((point, index) => {
+//     point.addEventListener('click', function() {
+//         highlight(point, "map-point");
+//         mapName.innerHTML = mapNames[index];
+//         mapTime.innerHTML = mapTimes[index];
+//         locationIndex = index;
+//         dropobj.value = index;
+//         // mapdropobj.value = index;
+
+//         mapPoints.forEach(others => {
+//             if (others != point) {
+//                 unhighlight(others, "map-point")
+//             }                
+//         });
+
+//         InitTickets();
+//     });
+// });
+
+hide(mapInfo);
+
 mapPoints.forEach((point, index) => {
-    point.addEventListener('click', function() {
+    unhighlight(point, "map-point")
+
+    point.addEventListener("click", (event) => {
+        unhide(mapInfo);
+        mapInfo.style.left = `${event.pageX}px`;
+        mapInfo.style.top = `${event.pageY}px`;
+
         highlight(point, "map-point");
         mapName.innerHTML = mapNames[index];
+        mapTime.innerHTML = mapTimes[index];
         locationIndex = index;
         dropobj.value = index;
         // mapdropobj.value = index;
@@ -119,15 +164,13 @@ mapPoints.forEach((point, index) => {
     });
 });
 
-mapPoints.forEach(point => {
-    unhighlight(point, "map-point")
-});
-
 function UpdateMap(index) {
     var point = mapPoints[index];
 
     highlight(point, "map-point");
     mapName.innerHTML = mapNames[index];
+    mapTime.innerHTML = mapTimes[index];
+
 
     mapPoints.forEach(others => {
         if (others != point) {
@@ -510,65 +553,65 @@ let allDist =
 
 let allMax =
 [
-    10000,
-    10000,
-    10000,
-    10000,
-    10000,
-    10000,
-    10000,
-    10000,
-    10000,
-    10000,
-    10000,
-    10000
+    8000,
+    7500,
+    0,
+    5500,
+    5000,
+    5000,
+    6000,
+    4500,
+    4000,
+    4500,
+    0,
+    8500
 ]
 
 let allSpeed =
 [
-    750,
-    750,
-    750,
-    750,
-    750,
-    750,
-    750,
-    750,
-    750,
-    750,
-    750,
-    750
+    600 * 2,
+    660 * 2,
+    0,
+    710 * 2,
+    730 * 2,
+    740 * 2,
+    640 * 2,
+    750 * 2,
+    750 * 2,
+    740 * 2,
+    0,
+    550 * 2
 ]
 
 let allSellAmount = [
+    6,
+    5,
+    3,
+    4,
+    4,
+    3,
+    5,
+    4,
     3,
     3,
     3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3
+    8
 ]
 
 let allStart = 
 [
-    2000,
-    2000,
-    2000,
-    2000,
-    2000,
-    2000,
-    2000,
-    2000,
-    2000,
-    2000,
-    2000,
-    2000
+    4863,
+    3753,
+    0,
+    3841,
+    3748,
+    2830,
+    4728,
+    3527,
+    2738,
+    2936,
+    0,
+    5936
 ]
 
 let allNow = 
@@ -591,6 +634,7 @@ let allSold =
 [
     false,
     false,
+    true,
     false,
     false,
     false,
@@ -598,8 +642,7 @@ let allSold =
     false,
     false,
     false,
-    false,
-    false,
+    true,
     false
 ]
 

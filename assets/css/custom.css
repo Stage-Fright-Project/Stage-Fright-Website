@@ -316,7 +316,7 @@
     background-size: 70rem;
     background-repeat: no-repeat;
     background-position: center 5rem;
-    height: calc(60rem + 10rem);
+    height: 50rem;
   }
   .map-container {
     background-color: #1c6062;

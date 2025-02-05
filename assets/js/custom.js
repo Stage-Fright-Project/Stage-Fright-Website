@@ -66,9 +66,10 @@ const map8 = document.getElementById("map-8");
 const map9 = document.getElementById("map-9");
 const map10 = document.getElementById("map-10");
 const map11 = document.getElementById("map-11");
+const map12 = document.getElementById("map-12");
 const mapName = document.getElementById("mapLocName");
 
-const mapdropobj = document.getElementById('map-location-selector');
+// const mapdwropobj = document.getElementById('map-location-selector');
 
 const mapNames = [
     "Los Angeles, California",
@@ -96,7 +97,8 @@ const mapPoints = [
     map8,
     map9,
     map10,
-    map11
+    map11,
+    map12
 ]
 
 mapPoints.forEach((point, index) => {
@@ -105,7 +107,7 @@ mapPoints.forEach((point, index) => {
         mapName.innerHTML = mapNames[index];
         locationIndex = index;
         dropobj.value = index;
-        mapdropobj.value = index;
+        // mapdropobj.value = index;
 
         mapPoints.forEach(others => {
             if (others != point) {
@@ -117,35 +119,22 @@ mapPoints.forEach((point, index) => {
     });
 });
 
-mapdropobj.onchange = () => {
-    // highlight(mapPoints[mapdropobj.value], "map-point");
-    // mapName.innerHTML = mapNames[mapdropobj.value];
-    // locationIndex = mapdropobj.value;
-    // dropobj.value = mapdropobj.value;
+mapPoints.forEach(point => {
+    unhighlight(point, "map-point")
+});
 
-    // mapPoints.forEach(others => {
-    //     if (others != mapPoints[mapdropobj.value]) {
-    //         unhighlight(others, "map-point")
-    //     }                
-    // });
+function UpdateMap(index) {
+    var point = mapPoints[index];
 
-    InitTickets();
-    UpdateMap();
-};
-
-function UpdateMap() {
-    highlight(mapPoints[mapdropobj.value], "map-point");
-    mapName.innerHTML = mapNames[mapdropobj.value];
-    locationIndex = mapdropobj.value;
-    dropobj.value = mapdropobj.value;
+    highlight(point, "map-point");
+    mapName.innerHTML = mapNames[index];
 
     mapPoints.forEach(others => {
-        if (others != mapPoints[mapdropobj.value]) {
+        if (others != point) {
             unhighlight(others, "map-point")
         }                
     });
 }
-
 
 
 // connect(map1, map2);
@@ -195,12 +184,12 @@ const discListNames =
 
 const discListDesc =
 [
-    "Item 1 Desc",
-    "Item 2 Desc",
-    "Item 3 Desc",
-    "Item 4 Desc",
-    "Item 5 Desc",
-    "Item 6 Desc"
+    "A sonic journey through vast landscapes of sound, Wanderer’s Sky blends soaring guitar riffs with introspective lyrics, capturing the restless spirit of those who chase the horizon.",
+    "Haunting melodies and ethereal harmonies intertwine in Whispers in the Pines, an album that echoes with the ghosts of lost love, untold stories, and the secrets carried by the wind.",
+    "Dark, brooding, and immersive, Beneath the Blackwater Sky is a deep dive into the unknown, weaving together heavy, atmospheric instrumentals with cryptic storytelling.",
+    "A melancholic yet explosive tribute to endings and rebirth, Funeral for the Stars delivers powerful ballads and anthemic choruses that lament the fading light while embracing new beginnings.",
+    "Emotionally charged and drenched in longing, Split by the Sea tells a tale of love and loss through waves of dynamic, crashing instrumentals and raw, heartfelt vocals.",
+    "A reflective, almost meditative collection of tracks, Solitude for the Shore captures the loneliness and beauty of standing at the water’s edge, staring into the endless unknown."
 ]
 
 disable(buttonLeft, "disc-btn");
@@ -521,81 +510,81 @@ let allDist =
 
 let allMax =
 [
-    100000,
-    100000,
-    100000,
-    100000,
-    100000,
-    100000,
-    100000,
-    100000,
-    100000,
-    100000,
-    100000,
-    100000
+    10000,
+    10000,
+    10000,
+    10000,
+    10000,
+    10000,
+    10000,
+    10000,
+    10000,
+    10000,
+    10000,
+    10000
 ]
 
 let allSpeed =
 [
-    100,
-    100,
-    100,
-    100,
-    100,
-    100,
-    100,
-    100,
-    100,
-    100,
-    100,
-    100
+    750,
+    750,
+    750,
+    750,
+    750,
+    750,
+    750,
+    750,
+    750,
+    750,
+    750,
+    750
 ]
 
 let allSellAmount = [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
 ]
 
 let allStart = 
 [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000
 ]
 
 let allNow = 
 [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1
+    allStart[0],
+    allStart[1],
+    allStart[2],
+    allStart[3],
+    allStart[4],
+    allStart[5],
+    allStart[6],
+    allStart[7],
+    allStart[8],
+    allStart[9],
+    allStart[10],
+    allStart[11]
 ]
 
 let allSold =
@@ -728,9 +717,7 @@ function InitTicketsOnce() {
     });
 
     dropobj.value = previousLowest[1];
-    mapdropobj.value = previousLowest[1];
-    UpdateMap();
-    // tickobj.innerHTML = previousLowest[1];
+    UpdateMap(previousLowest[1]);
     console.log("Set button value");
 }
 

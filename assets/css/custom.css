@@ -244,8 +244,9 @@
 
   .disc-list {
     padding-left: 5rem;
-    padding-right: 10rem;
+    padding-right: 5rem;
     font-size: 1.1rem;
+    width: 27rem;
   }
 
   .disc-info {
@@ -314,8 +315,8 @@
     /* filter: saturate(300%) brightness(70%) hue-rotate(165deg); */
     background-size: 70rem;
     background-repeat: no-repeat;
-    background-position: center;
-    height: 60rem;
+    background-position: center 5rem;
+    height: calc(60rem + 10rem);
   }
   .map-container {
     background-color: #1c6062;
@@ -340,46 +341,75 @@
   }
   #map-1 {
     position: absolute !important;
-    /* translate: 6.6rem -33.5rem; */
-    left: 7.2rem;
-    top: 26.85rem;
+    /* translate: 11rem -28rem; */
+    left: 11rem;
+    top: calc(32.5rem + -3.5rem);
   }
   #map-2 {
     position: absolute !important;
-    /* translate: 11rem -28rem; */
-    left: 11rem;
-    top: 32.5rem;
+    /* translate: 6.6rem -33.5rem; */
+    left: 7.2rem;
+    top: calc(26.85rem + -3.5rem);
   }
   #map-3 {
     position: absolute !important;
     /* translate: 19.5rem -27rem; */
     left: 19.7rem;
-    top: 35.7rem;
+    top: calc(35.7rem + -3.5rem);
   }
   #map-4 {
     position: absolute !important;
     /* translate: 41rem -21rem; */
+    left: 40rem;
+    top: calc(44rem + -3.5rem);
   }
   #map-5 {
-    translate: 38.25rem -28rem;
+    position: absolute !important;
+    /* translate: 38.25rem -28rem; */
+    left: 38rem;
+    top: calc(38.5rem + -3.5rem);
   }
   #map-6 {
-    translate: 48.25rem -24.5rem;
+    position: absolute !important;
+    /* translate: 48.25rem -24.5rem; */
+    left: 47.75rem;
+    top: calc(42.75rem + -3.5rem);
   }
   #map-7 {
-    translate: 62.75rem -21.6rem;
+    position: absolute !important;
+    /* translate: 62.75rem -21.6rem; */
+    left: 62rem;
+    top: calc(47rem + -3.5rem);
   }
   #map-8 {
-    translate: 53.5rem -35rem;
+    position: absolute !important;
+    /* translate: 53.5rem -35rem; */
+    left: 55rem;
+    top: calc(32rem + -3.5rem);
   }
   #map-9 {
-    translate: 50rem -49.2rem;
+    position: absolute !important;
+    /* translate: 50rem -49.2rem; */
+    left: 50rem;
+    top: calc(23rem + -3.5rem);
   }
   #map-10 {
-    translate: 58.5rem -47.2rem;
+    position: absolute !important;
+    /* translate: 58.5rem -47.2rem; */
+    left: 60rem;
+    top: calc(23.75rem + -3.5rem)
   }
   #map-11 {
-    translate: 67rem -53rem;
+    position: absolute !important;
+    /* translate: 67rem -53rem; */
+    left: 66rem;
+    top: calc(23.5rem + -3.5rem);
+  }
+  #map-12 {
+    position: absolute !important;
+    /* translate: 67rem -53rem; */
+    left: 66rem;
+    top: calc(22.5rem + -3.5rem);
   }
   .map-info {
     width: calc(100% - 2rem);
@@ -405,4 +435,26 @@
     transition-duration: 0.4s;
     cursor: unset !important;
     /* transform: translateX(0.2rem) translateY(0.2rem); */
+  }
+
+  .spacer {
+    position: relative;
+    width: 100%;
+    /* height: 0.4rem; */
+    /* background-color: #0d1516; */
+    margin-bottom: 5.5rem;
+  }
+
+  .spacer::after {
+    content: "";
+    position: absolute;
+    /* top: 0.4rem; */
+    width: 100%;
+    height: 6rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.185), transparent);
+    /* background-color: red; */
+  }
+
+  .crew-hover {
+    margin-top: 2rem;
   }
